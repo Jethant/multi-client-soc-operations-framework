@@ -1,6 +1,5 @@
 # Baselines
-This section contains baseline definitions used to compare user, device, and access behavior against expected norms across tenants.
-Full operational content intentionally omitted. The template below is a starting point to build future tailored baselines off of for individual clients. Each category is tied to common alert types and associated known actors, systems, or telemetry commonly found in that respective category.
+This file contains baseline definitions used to compare user, device, and access behavior against expected norms across tenants. The template below is a starting point to build future tailored baselines off of for individual clients. Each category is tied to common alert types and associated known actors, systems, or telemetry commonly found in that respective category. Full operational content intentionally omitted.
 
 # 1. Privileged Operations
 	• Expected Admin Actors — IAM team, helpdesk leads, cloud engineers
