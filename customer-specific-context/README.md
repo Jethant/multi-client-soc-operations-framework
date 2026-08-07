@@ -1,4 +1,4 @@
-This file contains a default template to use for building contextual knowledge of specific clients to better track what behavior is expected against the baseline. Fill out the template for each client as the information becomes known to you.
+This is a default template to use for building contextual knowledge of specific clients to better track what behavior is expected against the baseline. Fill out the template for each client as the information becomes known to you.
 
 # 1. Organization Structure
 	• Executive leadership
