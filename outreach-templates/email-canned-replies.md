@@ -1,4 +1,4 @@
-Phishing Simulation Default:
+Phishing Simulation Default :
 Thank you for reporting this email. No further action is required on your part. Please continue reporting any suspicious or unsolicited emails.
 
 
