@@ -4,17 +4,20 @@ The incident was triggered by unusual communication patterns and suspicious bank
 
 # Summary of Findings
 Analysis determined that an external vendor’s mailbox had been compromised by an unauthorized actor. The attacker used the mailbox to impersonate the vendor and initiate fraudulent ACH banking changes and payment requests.
+
 A third‑party security team supporting the vendor conducted the mailbox‑level investigation and confirmed:
 	• unauthorized access to the vendor mailbox
 	• malicious mailbox rules designed to hide inbound and outbound communications
 	• attacker‑controlled forwarding and filtering behavior
 	• fraudulent payment instructions originating from the compromised account
+
 Internal investigation focused on validating that:
 	• no internal mailboxes were accessed
 	• no internal identities were compromised
 	• no lateral movement occurred
 	• no malicious activity originated from internal systems
 	• the fraudulent communications were isolated to the compromised vendor mailbox
+
 The incident was escalated when an internal employee questioned a suspicious banking‑change request, prompting verification with the real vendor and discovery of the compromise.
 
 # Indicators & Malicious Activity
