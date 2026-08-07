@@ -1,18 +1,18 @@
-Query to get a table's layout:
+# Query to get a table's layout:
 TableName
 | take 10
 
-Query for broad search last 7 days:
+# Query for broad search last 7 days:
 Search "[term to find]"
 | where TimeGenerated > ago (7d)
 
-Query to retrieve Antivirus scan from defender:
+# Query to retrieve Antivirus scan from defender:
 DeviceEvents
 | where ActionType contains "Antivirus"
 | where DeviceName == "devicename"
 | where TimeGenerated > ago (7d)
 
-Query for detailed port scan info:
+# Query for detailed port scan info:
 set query_now = datetime();
 let PortScanThreshold = 50;
 let PortCounts =
