@@ -1,4 +1,4 @@
-Query to get alerts from the last 7 days, sorted by severity:  
+# Query to get alerts from the last 7 days, sorted by severity:  
 SecurityIncident 
 | where TimeGenerated >= ago(7d) 
 | where ProviderName in ("Azure Sentinel", "Microsoft 365 Defender", "Microsoft XDR") 
@@ -12,7 +12,7 @@ SecurityIncident
     | summarize Severity = "All", Total = count() 
 ) 
             
-Query to get mean triage time for all incidents:  
+# Query to get mean triage time for all incidents:  
 SecurityIncident 
 | where TimeGenerated > ago(7d) 
 | extend TriageDurationMinutes = datetime_diff('minute', FirstModifiedTime, CreatedTime) 
@@ -20,7 +20,7 @@ SecurityIncident
 | summarize MeanTimeToTriage_Hours = avg(TriageDurationHours) 
 
 
-Query for mean closure time for all incidents:  
+# Query for mean closure time for all incidents:  
 SecurityIncident 
 | where TimeGenerated > ago(7d) 
 | extend ClosureDurationMinutes = datetime_diff('minute', ClosedTime, CreatedTime) 
@@ -28,7 +28,7 @@ SecurityIncident
 | summarize MeanTimeToClosure_Hours = avg(ClosureDurationHours) 
 
 
-Query to get a count of all incidents generated in last 30 days, sorted by severity:
+# Query to get a count of all incidents generated in last 30 days, sorted by severity:
 SecurityIncident 
 | where TimeGenerated >= ago(30d) 
 | where ProviderName in ("Azure Sentinel", "Microsoft 365 Defender", "Microsoft XDR") 
@@ -43,7 +43,7 @@ SecurityIncident
 ) 
 
 
-Query to get closing notes for high severity incidents closed in the last 30 days:
+# Query to get closing notes for high severity incidents closed in the last 30 days:
 SecurityIncident 
 | where TimeGenerated >= ago(30d) 
 | where ProviderName in ("Azure Sentinel", "Microsoft 365 Defender", "Microsoft XDR") 
@@ -52,7 +52,7 @@ SecurityIncident
 | project TimeGenerated, Title, ClassificationComment, Severity, IncidentNumber 
 
  
-Query to get a count of quarantined emails sorted by type in the last 30 days:
+# Query to get a count of quarantined emails sorted by type in the last 30 days:
 EmailEvents 
 | where TimeGenerated >= ago(30d) 
 | where DeliveryLocation == "Quarantine" 
