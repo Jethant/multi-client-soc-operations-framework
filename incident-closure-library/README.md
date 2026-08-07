@@ -2,8 +2,10 @@ This section contains structured documentation for how I close identity, device,
 
 All content is fully sanitized and contains no tenant‑specific, company‑specific, or proprietary identifiers.
 
+# Case Studies
+Real incidents I have triaged and closed, rewritten into safe, anonymized examples that highlight validation steps, correlation logic, and professional documentation style.
+
 # Default Documentation Template
 Reusable template for documenting high severity incidents/true positives that required extensive investigation.
 
-# Case Studies
-Real incidents I have triaged and closed, rewritten into safe, anonymized examples that highlight validation steps, correlation logic, and professional documentation style.
+
