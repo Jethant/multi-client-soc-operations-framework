@@ -1,30 +1,30 @@
 # IP address checker
-https://whatismyipaddress.com/
+1. https://whatismyipaddress.com/
 
 # Email address validity checker
-https://email-checker.net/
+1. https://email-checker.net/
 
 # URL, file, and hash analyzer/database
-https://www.virustotal.com/gui/home/upload
-https://www.urlvoid.com/
+1. https://www.virustotal.com/gui/home/upload
+2. https://www.urlvoid.com/
 
 # Malware/suspicious attachment sandbox
-https://www.joesandbox.com/#windows
+1. https://www.joesandbox.com/#windows
 
 # AI for various questions, building, work assistance
-https://copilot.microsoft.com/
-https://chatgpt.com/
-https://gemini.google.com/app
-https://claude.ai/login
+1. https://copilot.microsoft.com/
+2. https://chatgpt.com/
+3. https://gemini.google.com/app
+4. https://claude.ai/login
 
 # KQL tutorials
-https://www.youtube.com/@TenMinuteKQL/playlists
-https://rodtrent.substack.com/p/must-learn-kql-part-1-tools-and-resources
+1. https://www.youtube.com/@TenMinuteKQL/playlists
+2. https://rodtrent.substack.com/p/must-learn-kql-part-1-tools-and-resources
 
 # Current Cybersecurity events
-https://darknetdiaries.com/
-https://www.bleepingcomputer.com/
-https://thehackernews.com/
-https://www.infosecurity-magazine.com/news/
-https://cisoseries.com/
-https://www.cisa.gov/news-events/cybersecurity-advisories
+1. https://darknetdiaries.com/
+2. https://www.bleepingcomputer.com/
+3. https://thehackernews.com/
+4. https://www.infosecurity-magazine.com/news/
+5. https://cisoseries.com/
+6. https://www.cisa.gov/news-events/cybersecurity-advisories
