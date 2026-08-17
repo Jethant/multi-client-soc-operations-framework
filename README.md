@@ -1,5 +1,5 @@
 # multi-tenant-soc-triage-framework
-A structured, multi-layer identity &amp; threat triage playbook for SOC analysts.
+A structured, multi-client SOC triage methodology for analysts operating across multiple Microsoft security tenants.
 
 ## Framework Structure (Ordered)
 1. Taxonomy - general outlines of common alerts
