@@ -1,77 +1,103 @@
-# Query to get alerts from the last 7 days, sorted by severity:  
-SecurityIncident 
-| where TimeGenerated >= ago(7d) 
-| where ProviderName in ("Azure Sentinel", "Microsoft 365 Defender", "Microsoft XDR") 
-| where Status == "Closed" 
-| summarize Total = count() by Severity 
-| union ( 
-    SecurityIncident 
-    | where TimeGenerated >= ago(7d) 
-    | where ProviderName in ("Azure Sentinel", "Microsoft 365 Defender", "Microsoft XDR") 
-    | where Status == "Closed" 
-    | summarize Severity = "All", Total = count() 
-) 
-            
-# Query to get mean triage time for all incidents:  
-SecurityIncident 
-| where TimeGenerated > ago(7d) 
-| extend TriageDurationMinutes = datetime_diff('minute', FirstModifiedTime, CreatedTime) 
-| extend TriageDurationHours = TriageDurationMinutes / 60.0 
-| summarize MeanTimeToTriage_Hours = avg(TriageDurationHours) 
+# Reporting queries
 
+The `SecurityIncident` table can contain updated snapshots of the same incident. These examples select the latest record per `IncidentName` before reporting. Run them in the correct client workspace and apply the deployment's approved customer discriminator when multiple clients share a workspace.
 
-# Query for mean closure time for all incidents:  
-SecurityIncident 
-| where TimeGenerated > ago(7d) 
-| extend ClosureDurationMinutes = datetime_diff('minute', ClosedTime, CreatedTime) 
-| extend ClosureDurationHours = ClosureDurationMinutes / 60.0 
-| summarize MeanTimeToClosure_Hours = avg(ClosureDurationHours) 
+## Incidents created in the last seven days by severity
 
+```kusto
+let Lookback = 7d;
+let LatestIncidents =
+    SecurityIncident
+    | where CreatedTime >= ago(Lookback)
+    | summarize arg_max(TimeGenerated, *) by IncidentName;
+LatestIncidents
+| summarize Total = count() by Severity
+| union (
+    LatestIncidents
+    | summarize Total = count()
+    | extend Severity = "All"
+)
+| order by Total desc
+```
 
-# Query to get a count of all incidents generated in last 30 days, sorted by severity:
-SecurityIncident 
-| where TimeGenerated >= ago(30d) 
-| where ProviderName in ("Azure Sentinel", "Microsoft 365 Defender", "Microsoft XDR") 
-| where Status == "Closed" 
-| summarize Total = count() by Severity 
-| union ( 
-    SecurityIncident 
-    | where TimeGenerated >= ago(30d) 
-    | where ProviderName in ("Azure Sentinel", "Microsoft 365 Defender", "Microsoft XDR") 
-    | where Status == "Closed" 
-    | summarize Severity = "All", Total = count() 
-) 
+## Mean time to first incident modification
 
+`FirstModifiedTime` records the first modification, not necessarily analyst triage. Do not label this metric mean time to triage unless the operating process guarantees that the first modification represents triage.
 
-# Query to get closing notes for high severity incidents closed in the last 30 days:
-SecurityIncident 
-| where TimeGenerated >= ago(30d) 
-| where ProviderName in ("Azure Sentinel", "Microsoft 365 Defender", "Microsoft XDR") 
-| where Severity == "High" and Status == "Closed" 
-| sort by Title 
-| project TimeGenerated, Title, ClassificationComment, Severity, IncidentNumber 
+```kusto
+let Lookback = 7d;
+SecurityIncident
+| where CreatedTime >= ago(Lookback)
+| summarize arg_max(TimeGenerated, *) by IncidentName
+| where isnotnull(FirstModifiedTime)
+| extend MinutesToFirstModification = datetime_diff("minute", FirstModifiedTime, CreatedTime)
+| where MinutesToFirstModification >= 0
+| summarize MeanTimeToFirstModificationHours = avg(MinutesToFirstModification) / 60.0,
+            IncidentCount = count()
+```
 
- 
-# Query to get a count of quarantined emails sorted by type in the last 30 days:
-EmailEvents 
-| where TimeGenerated >= ago(30d) 
-| where DeliveryLocation == "Quarantine" 
-| where ThreatTypes has_any ("Phish","Malware","Spam") 
-| mv-expand Threat = split(ThreatTypes, ",") 
-| extend Threat = trim(" ", tostring(Threat)) 
-| summarize Count = count() by Threat 
-| union ( 
-    EmailEvents 
-    | where TimeGenerated >= ago(30d) 
-    | where DeliveryLocation == "Quarantine" 
-    | where ThreatTypes has_any ("Phish","Malware","Spam") 
-    | mv-expand Threat = split(ThreatTypes, ",") 
-    | extend Threat = trim(" ", tostring(Threat)) 
-    | summarize Count = count() 
-    | extend Threat = "Total" 
-) 
-| order by Count desc 
+## Mean closure time for incidents closed in the last seven days
 
+```kusto
+let Lookback = 7d;
+SecurityIncident
+| summarize arg_max(TimeGenerated, *) by IncidentName
+| where isnotnull(ClosedTime) and ClosedTime >= ago(Lookback)
+| extend ClosureMinutes = datetime_diff("minute", ClosedTime, CreatedTime)
+| where ClosureMinutes >= 0
+| summarize MeanTimeToClosureHours = avg(ClosureMinutes) / 60.0,
+            IncidentCount = count()
+```
 
+## Incidents created in the last 30 days by severity
 
+```kusto
+let Lookback = 30d;
+let LatestIncidents =
+    SecurityIncident
+    | where CreatedTime >= ago(Lookback)
+    | summarize arg_max(TimeGenerated, *) by IncidentName;
+LatestIncidents
+| summarize Total = count() by Severity
+| union (
+    LatestIncidents
+    | summarize Total = count()
+    | extend Severity = "All"
+)
+| order by Total desc
+```
 
+## High-severity incidents closed in the last 30 days
+
+```kusto
+let Lookback = 30d;
+SecurityIncident
+| summarize arg_max(TimeGenerated, *) by IncidentName
+| where isnotnull(ClosedTime) and ClosedTime >= ago(Lookback)
+| where Severity =~ "High"
+| project ClosedTime, IncidentNumber, Title, Classification,
+          ClassificationReason, ClassificationComment, Owner
+| order by ClosedTime desc
+```
+
+## Quarantined email events in the last 30 days by threat type
+
+```kusto
+let Lookback = 30d;
+let QuarantinedThreats =
+    EmailEvents
+    | where TimeGenerated >= ago(Lookback)
+    | where DeliveryLocation =~ "Quarantine"
+    | where isnotempty(ThreatTypes)
+    | mv-expand Threat = split(ThreatTypes, ",")
+    | extend Threat = trim(" ", tostring(Threat))
+    | where isnotempty(Threat);
+QuarantinedThreats
+| summarize Total = count() by Threat
+| union (
+    QuarantinedThreats
+    | summarize Total = count()
+    | extend Threat = "All"
+)
+| order by Total desc
+```

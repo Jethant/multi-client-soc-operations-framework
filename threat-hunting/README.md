@@ -1,3 +1,3 @@
-# Threat Hunting
+# Threat hunting
 
-This section is where all my information on threat hunting processes and procedures are stored.
+The [threat-hunting workflow](Threat-Hunting-Topics.md) turns alert trends and detection questions into scoped, falsifiable hypotheses with recorded outcomes and owners.

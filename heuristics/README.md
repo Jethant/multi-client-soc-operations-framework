@@ -1,3 +1,5 @@
-# Triage Heuristics
-This section contains the decision-making logic applied during triage. Heuristics provide consistent evaluation patterns for identity, device, and access anomalies.
-Full operational content intentionally omitted.
+# Heuristics
+
+The [full heuristic framework](Heuristics-full-framework.md) defines benign indicators, escalation indicators, and evidence requirements for every taxonomy category.
+
+Heuristics guide investigation; they do not independently justify suppression or closure.

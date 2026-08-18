@@ -1,82 +1,83 @@
-This is a default template to use for building contextual knowledge of specific clients to better track what behavior is expected against the baseline. Fill out the template for each client as the information becomes known to you.
+# Client context template
 
-# 1. Organization Structure
-	• Executive leadership
-	• IT leadership
-	• IAM team
-	• Endpoint team
-	• Security team
-	• Helpdesk
-	• Project managers
-	• External consultants
-	
-# 2. Admin & Privileged Actors
-	• Global admins
-	• Privileged role admins
-	• Helpdesk admins
-	• Endpoint admins
-	• Guest managers
-	• External MSP admins
+Use this template to record approved context that helps analysts distinguish expected activity from anomalies.
 
-# 3. Network & Location Context
-	• Office locations
-	• Corporate subnets
-	• VPN ranges
-	• Cloud egress IPs
-	• Partner organization IPs
-	• Expected travel patterns
+This public repository must contain sanitized examples only. Completed profiles with live client details belong in the access-controlled system used for that client, even when one person maintains this repository.
 
-# 4. Device & Provisioning Context
-	• OEM vendor (Dell, HP, Lenovo)
-	• Provisioning tools (Autopilot, OEM scripts)
-	• Expected local admin creation patterns
-	• Expected device naming conventions
-	• Expected update windows
-  
-# 5. Identity & Access Workflow Context
-	• MFA enrollment workflow
-	• Password reset workflow
-	• Guest onboarding workflow
-	• Consultant lifecycle workflow
-	• Admin role assignment workflow
-	• CA policy change workflow
-  
-# 6. Project & Operational Cycles
-	• Active projects
-	• Migration timelines
-	• Consultant engagement periods
-	• Seasonal workload spikes
-	• Maintenance windows
-	• Scheduled policy updates
-  
-# 7. Known Exceptions & Weirdness
-	• Admins who work odd hours
-	• Devices that behave strangely but are safe
-	• Legacy systems that generate noise
-	• Known false positives
-	• Known safe external partners
-	• Known safe automation accounts
-  
-# 8. High‑Risk Areas
-	• Sensitive departments
-	• High‑privilege apps
-	• External‑facing systems
-	• Legacy identity dependencies
-	• High‑risk user groups
-  
-# 9. Communication & Escalation Paths
-	• IAM escalation
-	• Endpoint escalation
-	• Security escalation
-	• Helpdesk escalation
-	• Project manager escalation
-	• External consultant escalation
-  
-# 10. Historical Incident Notes
-	• Past compromises
-	• Past misconfigurations
-	• Past admin mistakes
-	• Past tuning decisions
-	• Past baseline updates
+## Profile metadata
 
+- Non-sensitive client reference:
+- Profile owner:
+- Approved by:
+- Data sources:
+- Last validated:
+- Next review:
+- Overall confidence: low / medium / high
 
+Stale, unowned, or unverified context must not support automated closure.
+
+## 1. Organization and responsibility
+
+- IT, IAM, endpoint, security, helpdesk, and project responsibilities
+- External administrators, MSPs, and consultants
+- Separation-of-duty or approval requirements
+
+## 2. Privileged actors
+
+- Approved roles and responsible teams
+- PIM and break-glass workflow
+- Administrative devices and access paths
+- Expected maintenance windows
+
+## 3. Network and location context
+
+- Approved corporate, VPN, cloud-egress, and partner ranges
+- Office and remote-work locations
+- Expected travel patterns
+- Owner and expiration for every exception
+
+## 4. Device and provisioning context
+
+- Managed device platforms and naming conventions
+- Enrollment, provisioning, and remote-management tools
+- Local administrator and support workflows
+- Update and replacement windows
+
+## 5. Identity and access workflows
+
+- Onboarding, offboarding, and account recovery
+- MFA registration and replacement
+- Guest and consultant lifecycle
+- Role, application, and Conditional Access changes
+
+## 6. Projects and operational cycles
+
+- Active migrations and deployments
+- Consultant engagement periods
+- Seasonal activity and workload changes
+- Planned maintenance and policy updates
+
+## 7. Known exceptions
+
+For every exception record the behavior, owner, evidence, scope, start date, expiration date, and review date. Avoid permanent exceptions.
+
+## 8. High-risk areas
+
+- Sensitive data and departments
+- High-privilege applications and identities
+- Externally exposed or legacy systems
+- High-impact control dependencies
+
+## 9. Communication and escalation
+
+- Primary and backup contacts by function
+- After-hours path
+- Severity and notification expectations
+- Legal, privacy, financial, or executive escalation triggers
+
+## 10. Historical lessons
+
+- Past incidents and misconfigurations
+- Baseline and tuning changes
+- Known detection gaps
+- Open follow-up actions and owners

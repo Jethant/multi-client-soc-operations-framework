@@ -1,27 +1,57 @@
-# Query to get a table's layout:
+# Investigation queries
+
+Validate table availability, field names, permissions, and time zone in the target environment. Run queries in the correct client workspace and add the deployment's approved customer discriminator when multiple clients share a workspace.
+
+Replace example values before execution. Start with a narrow time range to control cost and noise.
+
+## Inspect a table sample
+
+```kusto
 TableName
 | take 10
+```
 
-# Query for broad search last 7 days:
-Search "[term to find]"
-| where TimeGenerated > ago (7d)
+## Broad search over the last seven days
 
-# Query to retrieve Antivirus scan from defender:
+Broad search can be expensive. Narrow the tables and time range whenever possible.
+
+```kusto
+search in (*) "term to find"
+| where TimeGenerated >= ago(7d)
+| take 100
+```
+
+## Defender antivirus-related device events
+
+```kusto
+let Lookback = 7d;
+let TargetDevice = "device-name";
 DeviceEvents
+| where TimeGenerated >= ago(Lookback)
+| where DeviceName =~ TargetDevice
 | where ActionType contains "Antivirus"
-| where DeviceName == "devicename"
-| where TimeGenerated > ago (7d)
+| project TimeGenerated, DeviceName, ActionType, InitiatingProcessAccountName,
+          InitiatingProcessFileName, AdditionalFields
+| order by TimeGenerated desc
+```
 
-# Query for detailed port scan info:
-set query_now = datetime();
+## Potential port scan from a public source
+
+Tune the time bin and threshold for the environment. Validate direction and authorized scanner ranges before operational use.
+
+```kusto
+let Lookback = 1h;
+let BinSize = 5m;
 let PortScanThreshold = 50;
-let PortCounts =
-    _Im_NetworkSession
-    | where ipv4_is_private(SrcIpAddr) == false
-    | summarize AttemptedPortsCount = dcount(DstPortNumber)
-        by SrcIpAddr, TimeGenerated = bin(TimeGenerated, 5m);
 _Im_NetworkSession
+| where TimeGenerated >= ago(Lookback)
+| where isnotempty(SrcIpAddr) and isnotempty(DstIpAddr)
 | where ipv4_is_private(SrcIpAddr) == false
-| extend TimeGenerated = bin(TimeGenerated, 5m)
-| join kind=inner PortCounts on SrcIpAddr, TimeGenerated
-| where AttemptedPortsCount > PortScanThreshold
+| summarize AttemptedPorts = dcount(DstPortNumber),
+            DestinationCount = dcount(DstIpAddr),
+            FirstSeen = min(TimeGenerated),
+            LastSeen = max(TimeGenerated)
+    by SrcIpAddr, bin(TimeGenerated, BinSize)
+| where AttemptedPorts > PortScanThreshold
+| order by AttemptedPorts desc
+```

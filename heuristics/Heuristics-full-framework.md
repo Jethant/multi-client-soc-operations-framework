@@ -1,165 +1,174 @@
-## Privileged Operations
-Heuristics:
+# Investigation heuristics
 
-   1. Expected admin performing the action
-   2. Expected IP range
-   3. Expected device
-   4. Expected workflow (CA edit, auth method cleanup, role assignment)
-   5. No parallel anomalous sign‑ins
-   6. No unexpected privilege escalation
-   7. No new admin roles added without justification
+Heuristics guide investigation; they do not replace evidence. A benign disposition requires all required telemetry, at least two independent benign indicators, no unresolved escalation indicator, and a current client baseline. Otherwise classify the incident as **Needs more evidence** or escalate it.
 
-Default Closing Note:
-The activity was reviewed and determined to be benign. An authorized administrator performed expected privileged operations consistent with routine identity or access management workflows. No indicators of unauthorized modification, privilege escalation, or anomalous identity behavior were identified.
-## Authentication Failures
-Heuristics:
+## Required closure record
 
-   1. Same IP → success shortly after
-   2. Same device fingerprint
-   3. Same location pattern
-   4. No repeated failures across multiple methods
-   5. No unfamiliar sign‑in properties
-   6. No parallel suspicious activity (password spray, MFA fatigue)
+- Time range and client scope investigated
+- Data sources checked and any unavailable telemetry
+- Evidence supporting and contradicting the conclusion
+- Correlated alerts or incidents
+- Analyst confidence and remaining uncertainty
+- Closure classification and follow-up owner
 
-Default Closing Note:
-The activity was reviewed and determined to be benign. Authentication failures originated from an expected device, IP range, and user behavior pattern, followed by successful sign‑in. No evidence of password spraying, MFA fatigue, or unfamiliar sign‑in properties was observed.
-## Conditional Access Changes
-Heuristics:
+## SOC-001 — Privileged Operations
 
-   1. Expected admin actor
-   2. Expected IP range
-   3. Expected timing (during maintenance windows)
-   4. Change aligns with known project or policy update
-   5. No unexpected broadening of access
-   6. No removal of critical controls (MFA, location restrictions)
+**Benign indicators**
 
-Default Closing Note:
-The activity was reviewed and determined to be benign. Conditional Access modifications were performed by an authorized administrator as part of expected policy maintenance. No indicators of unauthorized policy broadening, control removal, or anomalous identity behavior were identified.
-## Guest / External User Lifecycle
-Heuristics:
+- Actor, managed admin device, time window, and workflow match a current baseline.
+- A valid change or approval record explains the action.
+- PIM activation and MFA records align with the activity.
 
-   1. Expected admin actor
-   2. Expected IP range
-   3. Expected onboarding/offboarding workflow
-   4. Short‑lived accounts match consultant lifecycle
-   5. No unexpected group assignments
-   6. No privileged roles granted
+**Escalate when**
 
-Default Closing Note:
-The activity was reviewed and determined to be benign. Guest account creation, group membership changes, or deletion actions were performed by an authorized administrator and align with expected consultant or external‑user lifecycle workflows. No unauthorized access, privilege escalation, or anomalous identity behavior was identified.
-## Local Group Membership Changes
-Heuristics:
+- Privilege increased, a protected control changed, or a new administrator appeared unexpectedly.
+- The activity used a break-glass account, unmanaged device, unusual token, or unfamiliar session.
+- Related identity or device anomalies remain unexplained.
 
-   1. Expected provisioning workflow
-   2. Expected workstation
-   3. Expected actor (helpdesk, endpoint team)
-   4. No mass additions across multiple devices
-   5. No unexpected privileged accounts added
-   6. No correlation with suspicious device activity
+## SOC-002 — Authentication Failures
 
-Default Closing Note:
-The activity was reviewed and determined to be benign. Local group membership changes on the workstation were performed by an authorized actor as part of routine provisioning or access adjustments. No indicators of unauthorized privilege escalation, lateral movement, or anomalous device behavior were identified.
-## Authentication Method Changes
-Heuristics:
+**Benign indicators**
 
-   1. Expected admin actor
-   2. Expected IP range
-   3. Audit logs show activity was initiated by an authorized admin
-   4. No unexpected MFA method added (e.g., phone number not belonging to user)
-   5. No parallel unfamiliar sign‑ins
-   6. No signs of account compromise
+- A small failure sequence is followed promptly by a successful sign-in from the same managed device and session context.
+- Volume and timing remain within a current user or population baseline.
 
-Default Closing Note:
-The activity was reviewed and determined to be benign. Authentication method updates were performed by an authorized administrator or the user as part of expected MFA maintenance. No evidence of account compromise, unfamiliar sign‑ins, or unauthorized method registration was observed.
-## Insider Risk Data Movement
-Heuristics:
+**Escalate when**
 
-   1. Expected workflow (file saves, uploads, downloads)
-   2. Expected SharePoint/OneDrive location
-   3. Expected file types
-   4. No mass exfiltration
-   5. No external sharing
-   6. No access to sensitive folders outside role
+- Failures span users, methods, applications, locations, or autonomous systems.
+- Success follows suspicious failures, MFA fatigue, impossible travel, or unfamiliar session properties.
+- The same source exhibits password-spray or credential-stuffing behavior.
 
-Default Closing Note:
-The activity was reviewed and determined to be benign. File access, movement, or storage actions align with the user’s normal job responsibilities and expected workflow. No indicators of data exfiltration, unauthorized sharing, or anomalous insider‑risk behavior were identified.
-## Account Creation / Deletion
-Heuristics:
+## SOC-003 — Conditional Access Changes
 
-   1. Expected admin actor
-   2. Expected IP range
-   3. Expected lifecycle (consultant, automation, testing)
-   4. No privileged roles assigned
-   5. No unexpected group membership
-   6. No correlation with suspicious sign‑ins
+**Benign indicators**
 
-Default Closing Note:
-The activity was reviewed and determined to be benign. Account creation and/or deletion actions were performed by an authorized administrator and align with expected onboarding, offboarding, or consultant lifecycle workflows. No unauthorized access, privilege escalation, or anomalous identity behavior was identified.
-## Device‑Linked Identity Events
-Heuristics:
+- The actor, device, maintenance window, and change record all align.
+- The resulting policy scope and controls match the approved design.
 
-   1. Expected workstation
-   2. Expected provisioning workflow
-   3. Expected actor
-   4. No suspicious processes
-   5. No abnormal device timeline
-   6. No correlation with identity anomalies
+**Escalate when**
 
-Default Closing Note:
-The activity was reviewed and determined to be benign. Identity‑related events originating from the device align with expected provisioning, administrative maintenance, or user workflow. No suspicious processes, abnormal device timeline activity, or correlated identity anomalies were identified.
-## User‑Initiated Threat Activity
-Heuristics:
+- MFA, device compliance, location, risk, or session controls were weakened.
+- Users or applications were broadly excluded.
+- The change originated from an anomalous identity or device session.
 
-   1. User clicked link → SafeLinks/SmartScreen blocked
-   2. No credential submission
-   3. No malware execution
-   4. No lateral movement
-   5. No repeated phishing interactions
-   6. No parallel identity anomalies
+## SOC-004 — Guest and External User Lifecycle
 
-Default Closing Note:
-The activity was reviewed and determined to be benign. The user interacted with a potentially malicious link or email, but protective controls (SafeLinks, SmartScreen, Defender) successfully blocked or mitigated the threat. No credential submission, malware execution, or correlated identity anomalies were identified.
-## Device Threat Activity
-Heuristics:
+**Benign indicators**
 
-   1. Process execution matches known software
-   2. No persistence mechanisms
-   3. No credential theft tooling
-   4. No suspicious command‑line activity
-   5. No outbound connections to malicious domains
-   6. No correlation with identity anomalies
+- Sponsor, domain, project, access package, group, and expiration match approved context.
+- The guest's activity remains within the documented purpose.
 
-Default Closing Note:
-The activity was reviewed and determined to be benign. Device‑side threat detections were associated with expected software behavior or known safe processes. No indicators of malware execution, persistence mechanisms, credential theft tooling, or correlated identity anomalies were identified.
+**Escalate when**
 
-## Admin / Service Configuration Activity — Application Credential Creation
-This category covers legitimate administrative actions where a privileged user adds a credential (certificate or secret) to an Azure AD / Entra ID application or service principal. These events commonly occur during application onboarding, vendor integrations, API authentication setup, or service principal lifecycle management. Activity is typically performed by IT administrators, developers, or service accounts responsible for platform configuration.
-Heuristics (Triage Logic)
-Use these checks to determine whether the activity is expected or suspicious.
+- Privileged roles, sensitive groups, broad application consent, or persistent access are introduced.
+- No sponsor or business purpose can be verified.
+- Guest activity shows suspicious sign-ins, downloads, or cross-tenant access.
 
-   1. Actor Validation
-      1. Privileged admin or service account?
-      2. Known identity performing configuration tasks?
-      3. Matches baseline admin behavior?
-   2. IP & Device Validation
-      1. IP address aligns with user’s normal sign‑in patterns
-      2. Device is managed and baseline‑consistent
-      3. No anomalies in identity timeline
-   3. Workflow Context
-      1. Application/service principal is part of an ongoing project or vendor rollout
-      2. Credential creation aligns with expected implementation steps
-      3. Operation matches known admin responsibilities
-   4. Operation Validation
-      1. First credential added to a new or recently onboarded application
-      2. No evidence of unauthorized privilege escalation
-      3. No lateral movement or suspicious sign‑ins around the event
-   5. Threat Controls
-      1. No risky sign‑ins
-      2. No MFA anomalies
-      3. No Conditional Access bypass
-      4. No malicious indicators associated with the app or IP
+## SOC-005 — Local Group Membership Changes
 
-Default Closing Note:
-The activity represents expected administrative configuration related to application onboarding. A privileged user added a credential to an Azure AD / Entra ID application as part of an ongoing implementation workflow. The initiating IP, device, and identity timeline are baseline‑consistent, and no indicators of compromise or unauthorized access were identified. The event is classified as benign administrative activity.
-   
+**Benign indicators**
 
+- An approved management tool performed the change during provisioning or support work.
+- The actor, device, target group, and ticket all align.
+
+**Escalate when**
+
+- A user, script, or remote session adds unexpected privileged membership.
+- Changes occur across many devices or correlate with suspicious processes.
+- Membership persists beyond the approved work window.
+
+## SOC-006 — Authentication Method Changes
+
+**Benign indicators**
+
+- The user or helpdesk followed the approved recovery or device-replacement process.
+- Method ownership, device, IP context, and audit trail agree.
+
+**Escalate when**
+
+- A new method appears during risky sign-ins or immediately before sensitive activity.
+- Existing methods are removed, recovery data changes unexpectedly, or ownership cannot be verified.
+- Session revocation and identity containment may be required.
+
+## SOC-007 — Insider Risk Data Movement
+
+**Benign indicators**
+
+- Data classification, source, destination, volume, role, and project context all align.
+- Sharing remains within the approved audience and retention rules.
+
+**Escalate when**
+
+- Sensitive data moves to personal, external, newly created, or unsanctioned destinations.
+- Volume, timing, compression, staging, or deletion behavior is abnormal.
+- Activity coincides with resignation, access changes, or suspicious identity/device events.
+
+## SOC-008 — Account Creation and Deletion
+
+**Benign indicators**
+
+- An approved lifecycle system or administrator performed the action.
+- HR, contractor, service-account, or test-account documentation matches timing and attributes.
+- Initial groups, licenses, roles, credentials, and expiration match the approved profile.
+
+**Escalate when**
+
+- A new identity receives privilege, bypasses lifecycle controls, or signs in unexpectedly.
+- Deletion disables investigation, audit, retention, or recovery.
+- The actor, source, business owner, or purpose cannot be verified.
+
+## SOC-009 — Device-Linked Identity Events
+
+**Benign indicators**
+
+- Device identity, enrollment, actor, management process, and provisioning window align.
+- Endpoint telemetry shows the expected parent process and no suspicious follow-on activity.
+
+**Escalate when**
+
+- The device is unmanaged, duplicated, stale, or associated with suspicious identity activity.
+- Unexpected processes, persistence, remote access, or local privilege changes are present.
+
+## SOC-010 — User-Initiated Threat Activity
+
+**Benign indicators**
+
+- Protective controls blocked the interaction and device telemetry confirms no execution.
+- Identity evidence confirms no credential submission, new session, token abuse, or MFA change.
+
+**Escalate when**
+
+- Credentials or sensitive data were submitted, an attachment executed, or a payload was written.
+- Browser, network, device, or identity telemetry is unavailable or contradictory.
+- Related users or devices interacted with the same infrastructure.
+
+## SOC-011 — Device Threat Activity
+
+**Benign indicators**
+
+- File hash, signer, path, parent process, command line, and software owner support an approved use.
+- No persistence, credential access, defense evasion, or malicious network activity is present.
+
+**Escalate when**
+
+- The alert involves credential theft, persistence, evasion, remote execution, or lateral movement.
+- A nominally approved binary exhibits an abnormal path, parent, command line, or destination.
+- Low severity repeats across endpoints or correlates with higher-confidence telemetry.
+
+## SOC-012 — Application Credential Creation
+
+**Benign indicators**
+
+- The actor, application owner, managed device, deployment workflow, and change record align.
+- Credential type, lifetime, permissions, and storage meet the approved standard.
+- The application and service principal are expected and recently reviewed.
+
+**Escalate when**
+
+- The credential is long-lived, added to a dormant or high-privilege application, or lacks an owner.
+- Consent, permissions, or role assignments expand unexpectedly.
+- The actor or application has risky sign-ins, anomalous tokens, or unrelated suspicious activity.
+
+## Evidence-based closing note
+
+> Reviewed **[category and incident]** for **[client scope]** over **[UTC time range]**. Evidence from **[data sources]** showed **[observed facts]**. The activity **[matched/did not match]** baseline **[reference and review date]**. Contradictory or unavailable evidence: **[details or none]**. Disposition: **[classification]**, confidence **[low/medium/high]**. Follow-up: **[action, owner, and due date or none]**.
