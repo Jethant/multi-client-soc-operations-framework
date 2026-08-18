@@ -1,31 +1,34 @@
 # Blocked malicious archive on multiple endpoints
 
-## Scenario
+## Incident overview
 
-Several managed workstations downloaded the same shortcut-based archive containing an unsigned executable. Endpoint protection classified the file as potentially malicious and recorded blocked execution activity.
+A correlation incident combined a local administrator group modification with activity described by the platform as a potential build-process compromise. Review showed that the administrator-group change was authorized and consistent with expected operational activity.
 
-## Observed
+A separate part of the correlation involved several managed workstations downloading the same shortcut-based archive. The archive contained an unsigned executable that Microsoft Defender classified as a potential trojan. Defender recorded blocked execution activity on each identified device.
 
-- The same archive or file hash appeared on multiple endpoints.
-- Endpoint protection produced a malicious or suspicious verdict.
-- Available telemetry showed prevention before successful payload execution.
-- The scoped timelines showed no persistence, credential access, lateral movement, or suspicious identity activity.
+## Investigation findings
 
-## Not established
+- The local administrator account addition was expected and unrelated to malicious activity.
+- The same `.lnk` archive and unsigned executable appeared on multiple endpoints.
+- Defender produced a malicious or suspicious verdict for the executable.
+- Available device telemetry showed that execution was prevented.
+- No payload execution, persistence, anomalous identity activity, lateral movement, or build-process compromise was identified in the scoped telemetry.
+- The downloads were associated with routine user activity rather than an established command-and-control channel.
 
-- No command-and-control session was demonstrated by the available evidence.
-- A separate local administrator change was correlated by the platform but was validated as approved activity.
+## Correlation assessment
 
-## Response
+The platform correlation brought together events that required investigation but did not establish a single attack chain. In particular, the approved administrator change did not validate the build-process-compromise portion of the alert, and the malicious archive did not by itself establish command and control.
 
-- Removed or quarantined the artifact on every identified endpoint.
-- Verified endpoint telemetry and scan completion.
-- Hunted hashes, filenames, source URLs, and behavior across the environment.
-- Reviewed delivery source and affected-user activity.
-- Monitored for delayed execution or follow-on behavior.
+## Response and remediation
 
-## Determination
+- Removed or quarantined the archive and executable on every identified endpoint.
+- Verified that endpoint protection had prevented execution.
+- Reviewed device timelines for payload execution, persistence, and follow-on activity.
+- Hunted the file hash and related artifacts across the environment.
+- Continued monitoring for delayed execution or related activity.
+- Reinforced safe file-handling and download practices with the affected users.
+- Retained the build-process correlation logic for continued review rather than treating the unrelated administrator change as malicious.
 
-Blocked malicious-file activity affecting multiple endpoints. The scoped evidence did not establish command and control or successful compromise.
+## Final assessment
 
-**Remaining limitation:** The determination depends on complete endpoint telemetry for every affected device.
+This was blocked malicious-file activity involving an unsigned executable delivered through a shortcut-based archive to multiple endpoints. Defender prevented execution, and the scoped investigation found no evidence of successful compromise, persistence, lateral movement, command and control, or build-process compromise.

@@ -1,35 +1,46 @@
 # External-vendor business email compromise
 
-## Scenario
+## Incident overview
 
-An external vendor's mailbox was used to send fraudulent payment-change instructions to an internal employee. Two payments were processed before the request was independently verified and escalated.
+An external vendor's mailbox was compromised and used to impersonate the vendor in financial communications. The attacker sent fraudulent banking-change and payment instructions to an internal employee, and two ACH payments were processed before the activity was questioned and independently verified.
 
-## Observed internally
+The incident was escalated after the employee contacted the vendor through a separate trusted channel. Investigation established that the malicious communications originated from the vendor's legitimate mailbox. The internal investigation focused on determining whether any internal identities, mailboxes, endpoints, or payment workflows had also been compromised.
 
-- Fraudulent instructions arrived from the vendor's legitimate mailbox.
-- Communication style and urgency differed from the established process.
-- No evidence available to the internal investigation showed access to internal mailboxes or identities.
-- Internal review did not identify lateral movement or malicious activity originating from managed internal systems during the scoped window.
+## Internal findings
 
-## Reported by the vendor's security team
+- The fraudulent requests came from the vendor's legitimate email account.
+- The tone, urgency, and requested banking changes differed from the established vendor process.
+- Review of the available internal identity, mailbox, and endpoint telemetry found no evidence of unauthorized access to internal accounts.
+- No related lateral movement or malicious activity originating from managed internal systems was identified during the scoped investigation window.
+- The financial impact consisted of two ACH payments made before the request was challenged.
+
+## Findings reported by the vendor's security team
 
 - Unauthorized access to the vendor mailbox
-- Mailbox rules and forwarding behavior intended to conceal communications
-- Fraudulent payment instructions sent by the unauthorized actor
+- Mailbox rules intended to conceal inbound and outbound communications
+- Attacker-controlled forwarding and filtering behavior
+- Fraudulent payment instructions sent from the compromised account
 
-These statements were third-party findings and should be referenced to the vendor's protected report in an operational case.
+These mailbox-level findings came from the vendor's investigation rather than direct access to the vendor's environment.
 
-## Response
+## Indicators and investigative context
 
-- Verified the request through a separate trusted vendor contact.
-- Audited internal identities, mailboxes, and relevant endpoints.
-- Preserved messages, headers, payment records, and communication timelines.
-- Coordinated bank recall or recovery, legal, insurance, and law-enforcement actions as required.
-- Strengthened independent verification for payment and banking-detail changes.
-- Monitored for related infrastructure and impersonation attempts.
+- Fraudulent ACH and banking-change requests
+- Communication tone and urgency inconsistent with normal vendor behavior
+- External infrastructure associated with credential theft and BEC activity
+- Hidden mailbox rules and forwarding behavior reported by the vendor's security team
 
-## Determination
+## Response and remediation
 
-Confirmed compromise of an external vendor mailbox with financial impact. The scoped internal review found no evidence of internal identity or system compromise, but that finding does not resolve the vendor's containment or financial-recovery status.
+- Verified the request with the vendor through a separate trusted contact.
+- Coordinated with the vendor's security team regarding removal of malicious mailbox rules and recovery of the vendor account.
+- Blocked relevant attacker-controlled infrastructure in the internal tenant.
+- Audited internal mailboxes and identities for related unauthorized access.
+- Strengthened independent verification requirements for payment requests and banking-detail changes.
+- Provided targeted guidance on recognizing fraudulent financial communications.
+- Documented the incident for legal, compliance, and financial-recovery processes.
+- Continued monitoring for related infrastructure and impersonation attempts.
 
-**Evidence dependency:** Vendor-mailbox details depend on the third-party security report.
+## Final assessment
+
+This was a confirmed compromise of an external vendor mailbox that resulted in fraudulent payment instructions and financial loss. The scoped internal review found no evidence that internal identities, mailboxes, or systems were compromised. Vendor-mailbox containment remained dependent on actions and reporting from the vendor's security team.
