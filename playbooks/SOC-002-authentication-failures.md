@@ -24,6 +24,14 @@ Compare normal failure volume, failure-to-success timing, supported methods, ser
 4. Compare volume, timing, and distribution with the current baseline.
 5. Determine whether any successful sign-in followed suspicious failures.
 
+## Potential MITRE ATT&CK® mappings
+
+- [T1110.001 — Password Guessing](https://attack.mitre.org/techniques/T1110/001/) when repeated password guesses target one or a small number of accounts.
+- [T1110.003 — Password Spraying](https://attack.mitre.org/techniques/T1110/003/) when one password or a small password set is tried across many accounts.
+- [T1110.004 — Credential Stuffing](https://attack.mitre.org/techniques/T1110/004/) when previously obtained username and password pairs are reused.
+- [T1621 — Multi-Factor Authentication Request Generation](https://attack.mitre.org/techniques/T1621/) when repeated MFA requests are intentionally generated to obtain user approval.
+- [T1078 — Valid Accounts](https://attack.mitre.org/techniques/T1078/) when the sequence ends in confirmed unauthorized use of legitimate credentials.
+
 ## Decision guidance
 
 **BenignPositive candidate:** A low-volume failure sequence is followed promptly by success from the same managed device and consistent session, with no cross-user source pattern, MFA anomaly, risky sign-in, or suspicious follow-on activity.

@@ -23,6 +23,7 @@ PLAYBOOK_SECTIONS = (
     "## Required telemetry",
     "## Client baseline checks",
     "## Investigation and correlation",
+    "## Potential MITRE ATT&CK® mappings",
     "## Decision guidance",
     "## Containment and follow-up",
     "## Tuning",
@@ -30,6 +31,10 @@ PLAYBOOK_SECTIONS = (
 )
 CATEGORY_ID = re.compile(r"^SOC-\d{3}$")
 MARKDOWN_LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+ATTACK_LINK = re.compile(
+    r"\[(T\d{4}(?:\.\d{3})?)\s+—[^\]]+\]"
+    r"\(https://attack\.mitre\.org/techniques/(T\d{4})(?:/(\d{3}))?/\)"
+)
 
 
 def fail(message: str, errors: list[str]) -> None:
@@ -136,6 +141,19 @@ def validate_links(errors: list[str]) -> None:
                 fail(f"Broken link in {path.relative_to(ROOT)}: {target}", errors)
 
 
+def validate_attack_links(errors: list[str]) -> None:
+    for path in PLAYBOOK_DIRECTORY.glob("SOC-*.md"):
+        content = path.read_text(encoding="utf-8")
+        for displayed_id, parent_id, sub_id in ATTACK_LINK.findall(content):
+            linked_id = parent_id + (f".{sub_id}" if sub_id else "")
+            if displayed_id != linked_id:
+                fail(
+                    f"ATT&CK link ID mismatch in {path.relative_to(ROOT)}: "
+                    f"{displayed_id} links to {linked_id}",
+                    errors,
+                )
+
+
 def validate_names_and_content(errors: list[str]) -> None:
     misspelling = "ranso" + "meware"
     for path in ROOT.rglob("*"):
@@ -151,6 +169,7 @@ def main() -> int:
     errors: list[str] = []
     validate_registry(errors)
     validate_links(errors)
+    validate_attack_links(errors)
     validate_names_and_content(errors)
 
     if errors:

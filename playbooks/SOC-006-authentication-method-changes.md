@@ -24,6 +24,11 @@ Compare the approved recovery workflow, supported MFA methods, device replacemen
 4. Review sessions, tokens, device registrations, and sensitive actions after the change.
 5. Determine whether existing methods were removed or recovery details changed unexpectedly.
 
+## Potential MITRE ATT&CK® mappings
+
+- [T1098.005 — Device Registration](https://attack.mitre.org/techniques/T1098/005/) when an adversary-controlled device or MFA factor is registered to maintain access.
+- [T1556.006 — Multi-Factor Authentication](https://attack.mitre.org/techniques/T1556/006/) when MFA is disabled, weakened, bypassed, or modified to preserve access to a compromised account.
+
 ## Decision guidance
 
 **BenignPositive candidate:** The verified user or authorized helpdesk followed the approved workflow, and method ownership, device, sign-in, and audit evidence all agree.

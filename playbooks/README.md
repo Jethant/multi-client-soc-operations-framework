@@ -18,6 +18,10 @@ After choosing a taxonomy category, use its playbook as the investigation and re
 
 Use the native Microsoft Sentinel values defined in the [incident closure template](../incident-closure-library/README.md). Classify missing required telemetry as `Undetermined`.
 
+## MITRE ATT&CK® mapping
+
+Playbook mappings are candidates, not defaults. Apply a mapping only when the investigation establishes the described adversary behavior, use the most specific supported technique or sub-technique, and leave legitimate or inconclusive activity unmapped. An incident may support more than one mapping.
+
 ## Tuning
 
 A tuning candidate must meet the playbook's `BenignPositive` conditions, remain outside its `Keep under analyst review` conditions, and pass the central [tuning policy](../tuning/README.md).

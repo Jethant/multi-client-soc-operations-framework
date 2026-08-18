@@ -24,6 +24,11 @@ Confirm expected administrative roles, devices, network paths, maintenance windo
 4. Compare the exact before-and-after state with the approved ticket and maintenance window.
 5. Review identity and endpoint telemetry before and after the change for related anomalies.
 
+## Potential MITRE ATT&CK® mappings
+
+- [T1098.003 — Additional Cloud Roles](https://attack.mitre.org/techniques/T1098/003/) when an adversary-controlled cloud account receives added roles or permissions for persistence or privilege escalation.
+- [T1098.007 — Additional Local or Domain Groups](https://attack.mitre.org/techniques/T1098/007/) when an account is added to a privileged local or domain group to maintain or elevate access.
+
 ## Decision guidance
 
 **BenignPositive candidate:** The actor, managed administrative device, approved workflow and time window, PIM/MFA evidence, action, and resulting scope all agree with current context.

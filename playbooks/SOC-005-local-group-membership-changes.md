@@ -24,6 +24,10 @@ Check approved management actors and tools, device populations, support workflow
 4. Search for the same actor, member, command, or tool across other devices.
 5. Confirm removal when access was intended to be temporary.
 
+## Potential MITRE ATT&CK® mappings
+
+- [T1098.007 — Additional Local or Domain Groups](https://attack.mitre.org/techniques/T1098/007/) when an account is added to a local or domain group to maintain or elevate access.
+
 ## Decision guidance
 
 **BenignPositive candidate:** An approved management tool performed the expected membership change on the intended device population under a valid ticket and maintenance window.

@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Clarified that the operational alert taxonomy routes investigations and complements MITRE ATT&CK®.
+- Added evidence-conditional ATT&CK mapping guidance to every category playbook.
+- Extended repository validation to require mapping guidance and catch ATT&CK link ID mismatches.
+
 ## 1.0.0 — 2026-08-17
 
 - Added a stable taxonomy and 12 category playbooks covering investigation, response, tuning limits, and closure.

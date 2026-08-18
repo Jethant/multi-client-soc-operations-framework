@@ -24,6 +24,14 @@ Check approved simulations, email, browser and endpoint controls, reporting work
 4. Hunt the message, sender, URL, hash, infrastructure, and behavior across users and devices.
 5. Determine whether credentials, data, sessions, or endpoints require containment.
 
+## Potential MITRE ATT&CK® mappings
+
+- [T1566.001 — Spearphishing Attachment](https://attack.mitre.org/techniques/T1566/001/) when a malicious attachment is delivered to the user.
+- [T1566.002 — Spearphishing Link](https://attack.mitre.org/techniques/T1566/002/) when a malicious link is delivered to the user.
+- [T1204.001 — Malicious Link](https://attack.mitre.org/techniques/T1204/001/) when the user opens or follows the malicious link.
+- [T1204.002 — Malicious File](https://attack.mitre.org/techniques/T1204/002/) when the user opens or executes a malicious attachment or download.
+- [T1078 — Valid Accounts](https://attack.mitre.org/techniques/T1078/) when captured credentials are subsequently used for unauthorized access.
+
 ## Decision guidance
 
 **BenignPositive candidate:** Control telemetry confirms a block and independent endpoint plus identity evidence confirms no execution, submission, new session, token abuse, or MFA change.

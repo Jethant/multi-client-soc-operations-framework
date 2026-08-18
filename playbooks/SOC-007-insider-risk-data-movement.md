@@ -24,6 +24,12 @@ Compare repositories, data classifications, normal volume and frequency, destina
 4. Search for staging, compression, deletion, concealment, external upload, or personal destinations.
 5. Review resignation, access-change, off-hours, and related identity/device context when authorized.
 
+## Potential MITRE ATT&CK® mappings
+
+- [T1530 — Data from Cloud Storage](https://attack.mitre.org/techniques/T1530/) when unauthorized collection is confirmed from SaaS or cloud storage.
+- [T1560.001 — Archive via Utility](https://attack.mitre.org/techniques/T1560/001/) when collected data is compressed or packaged with an archive utility before movement.
+- [T1567.002 — Exfiltration to Cloud Storage](https://attack.mitre.org/techniques/T1567/002/) when data is transferred to an adversary-controlled or unapproved cloud-storage service.
+
 ## Decision guidance
 
 **BenignPositive candidate:** Role, approved project, classification, source, destination, audience, volume, device, and timing all agree with current context.

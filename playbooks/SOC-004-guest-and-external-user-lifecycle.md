@@ -24,6 +24,11 @@ Check approved inviters, sponsors, partner domains, projects, access packages, g
 4. Verify periodic access review and removal at the expected lifecycle boundary.
 5. Determine whether access persisted or expanded beyond the approved purpose.
 
+## Potential MITRE ATT&CK® mappings
+
+- [T1136.003 — Cloud Account](https://attack.mitre.org/techniques/T1136/003/) when an adversary creates or invites a cloud guest identity to maintain access.
+- [T1098.003 — Additional Cloud Roles](https://attack.mitre.org/techniques/T1098/003/) when an external account receives added roles or permissions for persistence or privilege escalation.
+
 ## Decision guidance
 
 **BenignPositive candidate:** Sponsor, purpose, domain, access package, group set, expiration, and observed activity all agree with current context.

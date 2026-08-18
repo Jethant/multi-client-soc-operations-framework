@@ -1,6 +1,8 @@
-# Alert taxonomy
+# Operational alert taxonomy
 
-The taxonomy supplies stable identifiers for every alert category supported by the framework. The machine-readable source is [alert-types.json](alert-types.json).
+The taxonomy supplies stable identifiers for routing alerts to the correct playbook. It complements MITRE ATT&CK® rather than replacing it: the SOC category selects the workflow, an ATT&CK mapping describes adversary behavior supported by the evidence, and the native Sentinel classification records the investigation outcome.
+
+The machine-readable category source is [alert-types.json](alert-types.json). Potential ATT&CK mappings and their evidence conditions are maintained in the linked playbooks.
 
 | ID | Category | Scope | Playbook |
 | --- | --- | --- | --- |
@@ -25,4 +27,4 @@ Adding or renaming a category requires:
 - a corresponding file in `playbooks/`
 - the matching row in this index
 
-Category-specific baseline checks and tuning criteria belong in that category's playbook. The repository validator enforces this coverage.
+Category-specific baseline checks, ATT&CK guidance, and tuning criteria belong in that category's playbook. The repository validator enforces this coverage.
