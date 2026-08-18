@@ -1,127 +1,97 @@
-## Privileged Operations
+# Mapped workflow guides
 
-   1. Initial Checks
-      1. Validate actor identity
-      2. Confirm admin role
-      3. Check sign‑in success
-   2. Baseline Comparison
-      1. Actor in expected admin list
-      2. IP in expected ranges
-      3. Device matches admin baseline
-   3. Correlation Workflow
-      1. Identity timeline
-      2. Device timeline
-      3. MFA history
-      4. CA evaluation
-      5. Escalate if privilege escalation
-   4. Closing Note
+## Universal workflow
 
-## Authentication Failures
+1. Confirm the correct client and UTC investigation window.
+2. Preserve the original alert, entities, detection rule, and evidence references.
+3. Identify the taxonomy category and required telemetry.
+4. Load current client context and baseline; note ownership and review date.
+5. Build identity, device, network, application, and control timelines as applicable.
+6. Record supporting, contradicting, and unavailable evidence.
+7. Choose **Benign**, **Suspicious**, **Confirmed threat**, **Misconfiguration**, or **Needs more evidence**.
+8. Contain or escalate before tuning. Apply automation only through the documented tuning gate.
+9. Complete outreach, closure documentation, and follow-up ownership.
 
-   1. Validate failure pattern
-   2. Check device fingerprint
-   3. Check IP location
-   4. Review MFA history
-   5. Compare to baseline
-   6. Apply tuning (single failure → success = suppress)
-   7. Correlate identity timeline
-   8. Close or escalate
-   9. Apply closing note
+## SOC-001 — Privileged Operations
 
-## Conditional Access Changes
+- Validate actor, role, PIM activation, MFA, device, session, and change record.
+- Capture the exact before-and-after configuration or privilege scope.
+- Correlate identity and device timelines.
+- Escalate protected-control changes, privilege expansion, or unexplained activity.
 
-   1. Validate admin identity
-   2. Check CA change type
-   3. Compare to baseline workflows
-   4. Check maintenance window
-   5. Correlate identity + device timeline
-   6. Evaluate policy impact
-   7. Apply tuning (expected = suppress)
-   8. Escalate if controls removed
-   9. Apply closing note
+## SOC-002 — Authentication Failures
 
-## Guest / External User Lifecycle
+- Build failure-to-success sequences by user, application, device, IP, and method.
+- Search the source across other users.
+- Review MFA, risk, token, and follow-on activity.
+- Escalate spraying, suspicious success, or incomplete telemetry.
 
-   1. Validate admin identity
-   2. Check guest creation/deletion pattern
-   3. Compare group assignments to baseline
-   4. Check IP legitimacy
-   5. Correlate identity timeline
-   6. Apply tuning
-   7. Escalate privileged guest access
-   8. Apply closing note
+## SOC-003 — Conditional Access Changes
 
-## Local Group Membership Changes
+- Validate actor, device, PIM, MFA, ticket, and maintenance window.
+- Compare before-and-after policy scope, exclusions, and controls.
+- Review policy evaluations and follow-on access.
+- Escalate any unexplained weakening or bypass.
 
-   1. Validate actor
-   2. Check device provisioning status
-   3. Compare group change to baseline
-   4. Correlate device timeline
-   5. Check process legitimacy
-   6. Apply tuning
-   7. Escalate privileged group additions
-   8. Apply closing note
+## SOC-004 — Guest and External User Lifecycle
 
-## Authentication Method Changes
+- Verify sponsor, purpose, domain, access package, groups, and expiration.
+- Review sign-ins, applications, downloads, and sharing.
+- Confirm periodic review and offboarding.
+- Escalate privilege, sensitive access, or missing ownership.
 
-   1. Validate admin/user identity
-   2. Check method type
-   3. Compare to baseline MFA methods
-   4. Review MFA history
-   5. Correlate identity timeline
-   6. Apply tuning
-   7. Escalate unfamiliar MFA methods
-   8. Apply closing note
+## SOC-005 — Local Group Membership Changes
 
-## Insider Risk Data Movement
+- Validate actor, tool, device, target group, intended member, and ticket.
+- Review remote sessions, processes, and command lines.
+- Search for the same change across endpoints.
+- Confirm temporary access was removed.
 
-   1. Validate file type
-   2. Check file location
-   3. Compare volume to baseline
-   4. Review sharing patterns
-   5. Correlate identity + device timeline
-   6. Apply tuning
-   7. Escalate external sharing
-   8. Apply closing note
+## SOC-006 — Authentication Method Changes
 
-## Account Creation / Deletion
+- Validate the user or helpdesk recovery process.
+- Compare the new method with approved methods and ownership evidence.
+- Review surrounding sign-ins, sessions, device registrations, and sensitive activity.
+- Revoke sessions and escalate when compromise is possible.
 
-   1. Validate admin identity
-   2. Check lifecycle pattern
-   3. Compare group membership to baseline
-   4. Correlate identity timeline
-   5. Apply tuning
-   6. Escalate privileged role assignment
-   7. Apply closing note
+## SOC-007 — Insider Risk Data Movement
 
-## Device-Linked Identity Events
+- Determine data classification, business purpose, source, destination, audience, and volume.
+- Compare role and project context with historical behavior.
+- Correlate identity, device, file, application, and network evidence.
+- Escalate external, personal, concealed, or unusually large transfers.
 
-   1. Validate device identity
-   2. Check provisioning pattern
-   3. Compare processes to baseline
-   4. Correlate device + identity timeline
-   5. Apply tuning
-   6. Escalate suspicious processes
-   7. Apply closing note
+## SOC-008 — Account Creation and Deletion
 
-## User-Initiated Threat Activity
+- Validate lifecycle source, actor, business owner, account type, timing, and ticket.
+- Review initial groups, roles, licenses, credentials, and expiration.
+- Correlate first sign-ins and resource access.
+- For deletion, confirm retention, evidence, and ownership-transfer requirements.
 
-   1. Validate threat type
-   2. Check SafeLinks/SmartScreen outcome
-   3. Review identity timeline
-   4. Check device timeline
-   5. Apply tuning
-   6. Escalate credential submission
-   7. Apply closing note
+## SOC-009 — Device-Linked Identity Events
 
-## Device Threat Activity
+- Match the device to inventory, enrollment, ownership, and management records.
+- Correlate identity events with endpoint processes and network activity.
+- Review duplicate, stale, unmanaged, or unexpectedly privileged devices.
+- Escalate suspicious follow-on activity.
 
-   1. Validate process
-   2. Compare to baseline safe processes
-   3. Review AV/EDR context
-   4. Correlate device + identity timeline
-   5. Apply tuning
-   6. Escalate persistence or credential theft
-   7. Apply closing note
+## SOC-010 — User-Initiated Threat Activity
 
+- Establish whether the user clicked, submitted, downloaded, opened, or executed.
+- Correlate email, browser, endpoint, network, identity, and MFA evidence.
+- Hunt the indicators across other users and devices.
+- Contain credentials, sessions, devices, or messages before closure when required.
 
+## SOC-011 — Device Threat Activity
+
+- Review signer, hash, path, parent process, command line, user, and network activity.
+- Search for persistence, credential access, evasion, execution, and lateral movement.
+- Hunt artifacts and behavior across endpoints.
+- Escalate abnormal use even when the binary or severity appears familiar.
+
+## SOC-012 — Application Credential Creation
+
+- Validate actor, application owner, PIM, MFA, device, deployment, and ticket.
+- Review credential type, lifetime, storage, permissions, consent, and application status.
+- Correlate subsequent token use, sign-ins, and privilege changes.
+- Remove or rotate unauthorized credentials and escalate unexplained access.

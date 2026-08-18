@@ -1,3 +1,5 @@
-# Outreach Templates
-This section contains communication templates used for user outreach during identity and access investigations. Templates are generalized and sanitized.
-Full operational content intentionally omitted.
+# Outreach templates
+
+The [email investigation templates](email-canned-replies.md) provide conditional language for simulations, legitimate messages, spam, phishing, credential submission, and possible attachment execution.
+
+Replace every placeholder and remove any statement not supported by the case evidence.

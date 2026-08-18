@@ -1,3 +1,5 @@
-# Correlation Workflows
-This section contains multi-signal correlation workflows that combine identity, device, network, MFA, and behavioral data to produce high-confidence triage outcomes.
-Full operational content intentionally omitted.
+# Correlation workflows
+
+Correlation workflows combine identity, device, network, application, MFA, and control telemetry. Use the [mapped workflows](correlation-workflows-list.md) after selecting a taxonomy category.
+
+Unavailable telemetry must be documented and must not be interpreted as a negative finding.

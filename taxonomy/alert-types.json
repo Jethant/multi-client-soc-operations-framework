@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "categories": [
+    { "id": "SOC-001", "name": "Privileged Operations" },
+    { "id": "SOC-002", "name": "Authentication Failures" },
+    { "id": "SOC-003", "name": "Conditional Access Changes" },
+    { "id": "SOC-004", "name": "Guest and External User Lifecycle" },
+    { "id": "SOC-005", "name": "Local Group Membership Changes" },
+    { "id": "SOC-006", "name": "Authentication Method Changes" },
+    { "id": "SOC-007", "name": "Insider Risk Data Movement" },
+    { "id": "SOC-008", "name": "Account Creation and Deletion" },
+    { "id": "SOC-009", "name": "Device-Linked Identity Events" },
+    { "id": "SOC-010", "name": "User-Initiated Threat Activity" },
+    { "id": "SOC-011", "name": "Device Threat Activity" },
+    { "id": "SOC-012", "name": "Application Credential Creation" }
+  ]
+}

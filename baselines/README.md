@@ -1,69 +1,104 @@
 # Baselines
-This file contains baseline definitions used to compare user, device, and access behavior against expected norms across tenants. The template below is a starting point to build future tailored baselines off of for individual clients. Each category is tied to common alert types and associated known actors, systems, or telemetry commonly found in that respective category. Full operational content intentionally omitted.
 
-# 1. Privileged Operations
-	• Expected Admin Actors — IAM team, helpdesk leads, cloud engineers
-	• Expected IP Ranges — corporate VPN, office subnets
-	• Expected Devices — managed workstations, jump boxes
-	• Expected Workflows — CA edits, MFA resets, role assignments
-	• Expected Timing — business hours, maintenance windows
+Baselines describe expected behavior; they are context, not proof that an event is benign. A familiar identity, address, device, or process can still be compromised.
 
-# 2. Authentication Failures
-	• Expected Failure Patterns — mistyped password, expired session
-	• Expected Devices — user’s primary workstation or mobile
-	• Expected Locations — home, office, usual travel
-	• Expected MFA Behavior — single failure → immediate success
+## Baseline record template
 
-# 3. Conditional Access Changes
-	• Expected Admin Actors — IAM team, cloud architects
-	• Expected Workflows — policy tuning, onboarding new apps
-	• Expected Change Types — session controls, sign‑in frequency
-	• Expected Timing — scheduled maintenance
+Every operational baseline should record:
 
-# 4. Guest / External User Lifecycle
-	• Expected Admin Actors — helpdesk, project managers
-	• Expected Group Assignments — project‑specific, limited access
-	• Expected Lifecycle Patterns — short‑term access, cleanup cycles
-	• Expected IP Ranges — external but consistent with partner org
+- Client reference: non-sensitive internal identifier
+- Owner and approver
+- Data sources used to establish the baseline
+- Expected actors, devices, locations, processes, and time windows
+- Change or project reference, when applicable
+- Known exceptions and their expiration dates
+- Last validated date and next review date
+- Confidence: low, medium, or high
 
-# 5. Local Group Membership Changes
-	• Expected Actors — endpoint team, helpdesk
-	• Expected Devices — newly provisioned workstations
-	• Expected Workflows — provisioning, troubleshooting
-	• Expected Groups — Administrators, Remote Desktop Users
+Expired or unowned baselines must not support automated closure.
 
-# 6. Authentication Method Changes
-	• Expected Admin Actors — IAM team
-	• Expected User Behavior — re‑registering MFA after device change
-	• Expected Methods — Authenticator app, phone, FIDO2
-	• Expected Timing — during onboarding or device replacement
+## SOC-001 — Privileged Operations
 
-# 7. Insider Risk Data Movement
-	• Expected File Types — documents, spreadsheets, PDFs
-	• Expected Locations — SharePoint, OneDrive, team folders
-	• Expected Volume — small batches, routine saves
-	• Expected Sharing Patterns — internal only
+- Expected administrative roles and named teams
+- Managed administrative workstations or jump hosts
+- Approved network paths and maintenance windows
+- Common tasks and associated change records
+- Normal use of PIM, MFA, and break-glass accounts
 
-# 8. Account Creation / Deletion
-	• Expected Admin Actors — IAM team, HR onboarding
-	• Expected Lifecycle Patterns — consultant onboarding/offboarding
-	• Expected Group Membership — role‑appropriate, non‑privileged
-	• Expected Timing — start/end of projects
+## SOC-002 — Authentication Failures
 
-# 9. Device‑Linked Identity Events
-	• Expected Devices — managed workstations
-	• Expected Provisioning Patterns — local admin creation, enrollment
-	• Expected Actors — endpoint team
-	• Expected Processes — OEM tools, provisioning scripts
+- Normal failure-to-success timing by user population
+- Managed device and familiar-location patterns
+- Expected legacy clients, service accounts, and lockout behavior
+- Normal failure volume per user and across users
 
-# 10. User‑Initiated Threat Activity
-	• Expected User Behavior — occasional phishing clicks without credential submission
-	• Expected Controls — SafeLinks, SmartScreen, Defender
-	• Expected Outcomes — blocked URL, no malware execution
-	• Expected Follow‑Up — user notified, password reset if needed
+## SOC-003 — Conditional Access Changes
 
-# 11. Device Threat Activity
-	• Expected Processes — OEM tools, IT scripts, known safe binaries
-	• Expected AV/EDR Behavior — low‑severity detections, false positives
-	• Expected Network Behavior — no outbound malicious connections
-	• Expected Timeline — activity during provisioning or updates
+- Authorized policy administrators
+- Approved policy naming and change workflow
+- Maintenance windows and deployment rings
+- Protected controls that require separate approval
+
+## SOC-004 — Guest and External User Lifecycle
+
+- Authorized inviters and sponsors
+- Approved domains, projects, groups, and access duration
+- Review and expiration cadence
+- Expected partner locations only when documented and current
+
+## SOC-005 — Local Group Membership Changes
+
+- Approved endpoint-management actors and tools
+- Device provisioning and support workflows
+- Expected privileged local groups
+- Normal change volume and deployment windows
+
+## SOC-006 — Authentication Method Changes
+
+- Approved self-service and helpdesk recovery workflows
+- Supported MFA methods
+- Expected device-replacement and onboarding patterns
+- High-risk methods or recovery paths requiring escalation
+
+## SOC-007 — Insider Risk Data Movement
+
+- Role-appropriate repositories and data classifications
+- Typical volume, frequency, destination, and sharing scope
+- Approved migration, backup, and legal-discovery workflows
+- High-risk repositories and external destinations
+
+## SOC-008 — Account Creation and Deletion
+
+- Authorized identity-lifecycle systems and administrators
+- HR, contractor, test, and service-account workflows
+- Expected initial groups, licenses, and roles
+- Start, end, and expiration timing
+
+## SOC-009 — Device-Linked Identity Events
+
+- Managed device inventory and naming conventions
+- Approved provisioning tools and enrollment workflows
+- Expected local identities and management processes
+- Normal update and maintenance windows
+
+## SOC-010 — User-Initiated Threat Activity
+
+- Expected protective controls and reporting workflow
+- Normal browser, email, and device posture
+- Approved simulations and awareness-testing identifiers
+- Required evidence for clicks, credential submission, or execution
+
+## SOC-011 — Device Threat Activity
+
+- Approved software, scripts, administration tools, and signers
+- Normal parent-child process relationships
+- Expected network destinations and update behavior
+- Known testing tools with owners and expiration dates
+
+## SOC-012 — Application Credential Creation
+
+- Authorized application owners and credential administrators
+- Approved applications, service principals, and deployment pipelines
+- Credential type, lifetime, and rotation standards
+- Change, vendor, or project references
+- Expected permission grants and consent workflow
