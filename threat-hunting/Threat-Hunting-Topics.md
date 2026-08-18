@@ -1,6 +1,6 @@
 # Threat-hunting workflow
 
-Threat hunting begins with a falsifiable hypothesis, not a high alert count alone.
+Start each threat hunt with a falsifiable hypothesis. Alert volume helps define scope.
 
 ## 1. Select and scope a hypothesis
 
@@ -16,7 +16,7 @@ Threat hunting begins with a falsifiable hypothesis, not a high alert count alon
 
 ## 3. Investigate behavior
 
-- Start from the detection logic, but remove scheduling-only statements only after understanding their purpose.
+- Start from the detection logic and understand scheduling statements before removing them.
 - Expand across identity, endpoint, network, email, application, and audit sources.
 - Search for repeated entities, infrastructure, files, processes, sessions, and techniques.
 - Track supporting, contradicting, and unknown evidence.
@@ -29,4 +29,4 @@ Threat hunting begins with a falsifiable hypothesis, not a high alert count alon
 - Detection, hardening, baseline, or tuning recommendations
 - Owner, priority, and due date
 
-Do not turn a hunt result directly into suppression logic. Test any proposed change under the [tuning policy](../tuning/README.md).
+Route proposed suppression logic through the [tuning policy](../tuning/README.md) and its testing requirements.

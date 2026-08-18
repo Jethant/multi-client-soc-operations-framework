@@ -14,7 +14,7 @@ Administrative actions, role changes, privileged access, and changes to protecte
 
 ## Client baseline checks
 
-Confirm expected administrative roles, devices, network paths, maintenance windows, common tasks, change records, and PIM, MFA, and break-glass workflows against the client profile. Familiarity alone is not proof of legitimacy.
+Confirm expected administrative roles, devices, network paths, maintenance windows, common tasks, change records, and PIM, MFA, and break-glass workflows against the client profile and current evidence.
 
 ## Investigation and correlation
 
@@ -41,7 +41,7 @@ Confirm expected administrative roles, devices, network paths, maintenance windo
 
 ## Tuning
 
-**Never auto-close:** Privilege expansion, protected-control changes, break-glass use, unexpected role assignment, or correlated identity/device anomalies.
+**Keep under analyst review:** Privilege expansion, protected-control changes, break-glass use, unexpected role assignment, or correlated identity/device anomalies.
 
 ## Closure record
 

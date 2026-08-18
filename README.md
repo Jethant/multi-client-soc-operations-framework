@@ -8,15 +8,15 @@ This repository is a reusable reference and sanitized portfolio example. Test qu
 
 Core rules:
 
-1. Never suppress or auto-close an incident from one contextual signal such as a familiar user, device, IP address, or low severity.
-2. Missing required telemetry produces an **Undetermined** classification, not a benign determination.
+1. Suppression and auto-closure require multiple independent signals; a familiar user, device, IP address, or low severity is insufficient by itself.
+2. Classify incidents with missing required telemetry as **Undetermined**.
 
 ## Quick start
 
 1. Identify the category in the [taxonomy](taxonomy/README.md).
 2. Load the client's current [profile and operational baseline](client-profile/README.md).
 3. Work through the category [playbook](playbooks/README.md).
-4. Apply the central [tuning policy](tuning/README.md) only after the investigation is complete.
+4. Complete the investigation, then apply the central [tuning policy](tuning/README.md).
 5. Document the result with the [closure template](incident-closure-library/README.md) and use approved [outreach](outreach-templates/email-canned-replies.md) when needed.
 
 ## Framework structure
@@ -34,7 +34,7 @@ Core rules:
 
 ## Client data
 
-Only sanitized examples belong in this public repository. Do not commit live client names, user identities, internal network ranges, raw messages, credentials, tokens, case evidence, or escalation contacts. Completed client profiles should remain in the access-controlled system used for that client.
+This public repository contains sanitized examples. Keep live client names, identities, network ranges, messages, credentials, tokens, case evidence, contacts, and completed profiles in the access-controlled system used for that client.
 
 ## Validation
 

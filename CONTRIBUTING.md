@@ -20,11 +20,11 @@ Keep the required playbook sections: scope, telemetry, baseline checks, investig
 - Maintain one profile and baseline per client in the client's approved storage location.
 - Organize expected behavior by stable environment domain, not alert category.
 - Record sources and review dates for time-sensitive facts and exceptions.
-- Treat stale or missing profile data as unknown, never as evidence that activity is benign.
+- Use current, verified profile data when supporting a benign classification.
 
 ## Tuning changes
 
-- Do not suppress or auto-close from one signal.
+- Require multiple independent signals for suppression or auto-closure.
 - State required telemetry and route missing data to review.
 - Put category-specific candidates and exclusions in the relevant playbook.
 - Keep universal testing, ownership, scope, expiration, rollback, and review requirements in `tuning/README.md`.
@@ -42,7 +42,7 @@ Keep the required playbook sections: scope, telemetry, baseline checks, investig
 - Use sanitized values only.
 - Separate observed facts, third-party reports, inference, and unknowns.
 - Use reserved documentation domains and IP addresses.
-- Never commit live client identities, internal ranges, raw messages, credentials, tokens, or case evidence.
+- Keep live client identities, internal ranges, messages, credentials, tokens, and case evidence in the client's protected system.
 
 ## Pull requests
 

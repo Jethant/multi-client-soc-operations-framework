@@ -22,7 +22,7 @@ LatestIncidents
 
 ## Mean time to first incident modification
 
-`FirstModifiedTime` records the first modification, not necessarily analyst triage. Do not label this metric mean time to triage unless the operating process guarantees that the first modification represents triage.
+`FirstModifiedTime` records the first modification. Report this metric as mean time to first modification; use mean time to triage only when the operating process guarantees that the first modification represents triage.
 
 ```kusto
 let Lookback = 7d;

@@ -41,7 +41,7 @@ Compare normal failure volume, failure-to-success timing, supported methods, ser
 
 ## Tuning
 
-**Never auto-close:** Distributed failures, password spraying, success after suspicious failures, unfamiliar session properties, risky sign-ins, or repeated MFA prompts.
+**Keep under analyst review:** Distributed failures, password spraying, success after suspicious failures, unfamiliar session properties, risky sign-ins, or repeated MFA prompts.
 
 ## Closure record
 

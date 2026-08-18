@@ -41,7 +41,7 @@ Check lifecycle systems and administrators, employee and contractor workflows, a
 
 ## Tuning
 
-**Never auto-close:** Privileged or unowned accounts, lifecycle bypass, unexpected first sign-in, abnormal credential creation, missing expiration, or deletion that affects audit and retention.
+**Keep under analyst review:** Privileged or unowned accounts, lifecycle bypass, unexpected first sign-in, abnormal credential creation, missing expiration, or deletion that affects audit and retention.
 
 ## Closure record
 

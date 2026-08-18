@@ -41,7 +41,7 @@ Check inventory, device identities, naming, enrollment tools, ownership, local-a
 
 ## Tuning
 
-**Never auto-close:** Unmanaged or duplicate devices, abnormal processes, remote access, local privilege changes, or correlated identity risk.
+**Keep under analyst review:** Unmanaged or duplicate devices, abnormal processes, remote access, local privilege changes, or correlated identity risk.
 
 ## Closure record
 

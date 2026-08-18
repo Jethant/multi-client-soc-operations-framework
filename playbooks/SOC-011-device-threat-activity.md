@@ -41,7 +41,7 @@ Compare software, scripts, administrative tools, signers, paths, process relatio
 
 ## Tuning
 
-**Never auto-close:** Credential theft, persistence, defense evasion, remote execution, lateral movement, abnormal use of an approved binary, or repeated low-severity detections across devices.
+**Keep under analyst review:** Credential theft, persistence, defense evasion, remote execution, lateral movement, abnormal use of an approved binary, or repeated low-severity detections across devices.
 
 ## Closure record
 

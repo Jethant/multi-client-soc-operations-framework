@@ -6,7 +6,7 @@ This section contains an evidence-based closure template and sanitized case stud
 
 - Document the client scope and UTC investigation window.
 - Record every data source checked and any unavailable telemetry.
-- Cite evidence for material claims; do not convert absence of evidence into proof of absence.
+- Cite evidence for material claims and record missing evidence as unknown.
 - State remaining uncertainty.
 - Assign an owner and due date to every follow-up action.
 
@@ -92,7 +92,7 @@ Use the native Microsoft Sentinel incident classification values:
 
 ### 12. Evidence references
 
-Reference protected source locations; do not copy sensitive evidence into this public repository.
+Reference protected source locations and keep sensitive evidence there.
 
 ## Sanitized case studies
 

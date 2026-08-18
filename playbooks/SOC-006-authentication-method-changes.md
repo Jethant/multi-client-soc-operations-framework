@@ -41,7 +41,7 @@ Compare the approved recovery workflow, supported MFA methods, device replacemen
 
 ## Tuning
 
-**Never auto-close:** New or removed methods during risky activity, ownership uncertainty, recovery-detail changes, unfamiliar sessions, or sensitive follow-on activity.
+**Keep under analyst review:** New or removed methods during risky activity, ownership uncertainty, recovery-detail changes, unfamiliar sessions, or sensitive follow-on activity.
 
 ## Closure record
 

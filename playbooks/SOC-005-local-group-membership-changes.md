@@ -41,7 +41,7 @@ Check approved management actors and tools, device populations, support workflow
 
 ## Tuning
 
-**Never auto-close:** Interactive or remote manual additions, broad device scope, unexpected privileged membership, suspicious processes, or missing endpoint telemetry.
+**Keep under analyst review:** Interactive or remote manual additions, broad device scope, unexpected privileged membership, suspicious processes, or missing endpoint telemetry.
 
 ## Closure record
 
