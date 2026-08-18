@@ -64,11 +64,13 @@ This section contains an evidence-based closure template and sanitized case stud
 
 ### 8. Final determination
 
-- Benign
-- Suspicious
-- Confirmed threat
-- Misconfiguration
-- Needs more evidence
+Use the native Microsoft Sentinel incident classification values:
+
+- `TruePositive` — the detection accurately identified suspicious or malicious activity
+- `BenignPositive` — the detection accurately identified suspicious-looking but expected activity
+- `FalsePositive` — the incident resulted from incorrect alert logic or inaccurate data
+- `Undetermined` — the available evidence is insufficient or contradictory
+- Classification reason, when applicable
 - Confidence: low / medium / high
 - Remaining uncertainty
 
