@@ -33,7 +33,6 @@ These mailbox-level findings came from the vendor's investigation rather than di
 ## Response and remediation
 
 - Verified the request with the vendor through a separate trusted contact.
-- Coordinated with the vendor's security team regarding removal of malicious mailbox rules and recovery of the vendor account.
 - Blocked relevant attacker-controlled infrastructure in the internal tenant.
 - Audited internal mailboxes and identities for related unauthorized access.
 - Strengthened independent verification requirements for payment requests and banking-detail changes.
