@@ -1,29 +1,32 @@
 # Blocked drive-by redirect
 
-## Scenario
+## Incident overview
 
-A managed workstation attempted to reach a suspicious website that redirected the browser through infrastructure classified as malicious by available security controls and an approved analysis service.
+The incident originated from an alert named **Financially motivated threat actor** after a user attempted to access a suspicious domain during routine browsing. The alert name reflected threat-intelligence associations between supplied indicators and financially motivated threat activity. The site redirected the browser through infrastructure classified as malicious, and Microsoft Defender Network Protection blocked the resulting outbound connection attempts.
 
-## Observed
+Detonation of the referenced URL in Joe Sandbox resolved to an abnormal index page containing a fraudulent sign-in prompt. The service classified the URL as malicious. The investigation focused on determining whether the redirects resulted in credential entry, payload execution, persistence, or related identity activity.
 
-- Browser-initiated redirects and rapid outbound connection attempts
-- Network Protection block events for suspicious destinations
-- No payload execution, persistence, lateral movement, or anomalous identity activity in the scoped telemetry
-- Normal browser background traffic separated from the redirect chain
+## Investigation findings
 
-## Inference and limits
+- Browser-initiated redirects were consistent with a drive-by compromise attempt.
+- Joe Sandbox returned a malicious verdict and displayed a fraudulent sign-in prompt.
+- Rapid outbound connection attempts to the redirect infrastructure were blocked by Network Protection.
+- No payload execution, persistence, anomalous identity or MFA activity, lateral movement, or related file activity was identified in the scoped telemetry.
+- Additional DNS and HTTPS activity to `fonts.gstatic.com` and `encrypted-tbn0.gstatic.com` was consistent with normal Chrome background traffic and was separated from the malicious redirect chain.
 
-The behavior was consistent with a drive-by compromise attempt. The evidence did not establish the identity or financial motivation of a threat actor, so no actor attribution was assigned.
+## Attribution context and limits
 
-## Response
+The alert and its linked intelligence associated certain indicators with financially motivated threat activity. That context was retained as part of the original detection, while the endpoint investigation independently established interaction with malicious redirect infrastructure. The available endpoint evidence did not independently identify a specific actor, so the final assessment describes the observed behavior without discarding the alert provider's attribution context.
 
-- Added approved indicators with an owner and review date.
-- Completed endpoint scans and reviewed browser and device timelines.
-- Hunted destinations and related artifacts across the environment.
-- Provided targeted safe-browsing guidance to the user.
+## Response and remediation
 
-## Determination
+- Added the malicious redirect destinations as tenant indicators.
+- Completed an antivirus scan on the affected endpoint.
+- Reviewed the device and browser timelines for successful payload execution or persistence.
+- Hunted the destinations and related activity across the environment.
+- Reinforced safe-browsing guidance with the affected user.
+- Continued monitoring for related activity.
 
-Blocked access to malicious redirect infrastructure with no successful compromise identified in the available telemetry.
+## Final assessment
 
-**Remaining limitation:** The determination depends on complete endpoint and network telemetry.
+This was a blocked drive-by compromise attempt involving malicious redirect infrastructure and a fraudulent sign-in page. Existing controls prevented the observed outbound communication, and the scoped investigation found no evidence of payload execution, persistence, lateral movement, or internal identity compromise.

@@ -1,42 +1,41 @@
 # Blocked ransomware-linked web activity
 
-## Scenario
+## Incident overview
 
-A user's browser was redirected to infrastructure associated by available threat intelligence with malware or ransomware distribution. Network controls blocked the observed outbound attempts.
+Microsoft Sentinel generated a multi-stage incident after a user's browser attempted to connect to several malicious destinations associated by available threat intelligence with malware or ransomware distribution. Microsoft Defender Network Protection and Exploit Guard browser controls blocked the observed outbound connections.
 
-## Observed
+The user had visited a website that appeared legitimate before the browser was redirected through injected scripts to multiple malicious domains. DNS activity was followed by outbound connection attempts to infrastructure across multiple regions. The investigation focused on whether the redirect activity resulted in exploitation, payload execution, or follow-on compromise.
 
-- DNS and outbound connection attempts to suspicious destinations
-- Network Protection and browser-control block events
-- Successful endpoint scan completion
-- No payload execution, persistence, lateral movement, or post-exploitation activity in the scoped telemetry
-- No additional affected users or devices found during an indicator hunt
+## Investigation findings
 
-## Sanitized example indicators
+- Defender and VirusTotal classified the destinations as malicious or associated with malware distribution.
+- Network Protection and browser controls blocked the observed communication attempts.
+- Endpoint antivirus scans completed without identifying a ransomware payload.
+- Review of the device timeline and available forensic evidence found no payload execution, persistence, lateral movement, or post-exploitation activity.
+- A tenant-wide hunt for the identified destinations found no additional affected users or devices.
+- Threat context suggested that the redirect activity could target a Chrome vulnerability, but the available evidence did not establish exploitation of a specific CVE on the endpoint.
 
-The original indicators were replaced with reserved documentation values:
+## Historical indicators
 
-- `hxxps://redirect-a[.]invalid`
-- `hxxps://redirect-b[.]invalid`
-- `192.0.2.57`
-- `198.51.100.166`
+These were the defanged domains and external IP addresses recorded during the investigation. Reputation and geolocation observations reflect the sources available at that time.
 
-These reserved values are documentation examples.
+- `hxxps://solar-mems.cxm`
+- `hxxps://goodpersonofourcentury.cxm` — classified as malicious by VirusTotal
+- `213.109.203.57` — geolocated to the Netherlands during the investigation
+- `hxxps://besthappyfamily.cxm` — classified as malicious by VirusTotal
+- `149.56.95.166` — geolocated to Estonia during the investigation
+- `hxxps://waysmakeyourlifebetter.cxm` — classified as malicious by VirusTotal
 
-## Inference and limits
+## Response and remediation
 
-Threat-intelligence context linked the infrastructure to ransomware distribution. The available evidence supported a blocked delivery attempt, not successful exploitation or ransomware execution. No browser CVE attribution was made without version and exploit evidence.
+- Updated Google Chrome to the latest supported version.
+- Verified that Microsoft Defender Antivirus definitions and Windows security updates were current.
+- Confirmed that Network Protection and relevant browser controls remained enabled and enforced.
+- Added the identified malicious destinations to tenant indicators.
+- Completed a tenant-wide hunt for related destinations and artifacts.
+- Continued monitoring of the affected endpoint for follow-on activity.
+- Reinforced prompt browser updates and reporting of unusual browser behavior.
 
-## Response
+## Final assessment
 
-- Updated the browser, endpoint protection, and operating system.
-- Verified Network Protection and relevant browser controls remained enforced.
-- Added approved indicators with owners and review dates.
-- Hunted the environment for related destinations and artifacts.
-- Continued targeted monitoring of the affected endpoint.
-
-## Determination
-
-Blocked web activity involving ransomware-linked infrastructure. No successful compromise was identified within the available evidence and investigation window.
-
-**Remaining limitation:** The determination depends on complete endpoint and network telemetry.
+This was a blocked drive-by compromise attempt involving ransomware-linked infrastructure. Sentinel correlated the events because of the destination context, but the scoped evidence did not show ransomware execution or a successful endpoint compromise. Existing controls blocked the observed activity before follow-on behavior was identified.
