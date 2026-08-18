@@ -61,6 +61,6 @@ Routine closure does not require a tuning decision. When repeated incidents show
 ## Sanitized case studies
 
 - [Business email compromise involving an external vendor](case-studies/Business-Email-Compromise.md)
-- [Blocked malicious archive on multiple endpoints](case-studies/Blocked-malicious-archive-on-multiple-endpoints.md)
+- [Benign project archive flagged on multiple endpoints](case-studies/Blocked-malicious-archive-on-multiple-endpoints.md)
 - [Blocked drive-by redirect](case-studies/Blocked-drive-by-redirect.md)
 - [Blocked ransomware-linked web activity](case-studies/Ransomware.md)
