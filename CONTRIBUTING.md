@@ -7,9 +7,14 @@ Changes should preserve the framework's safety, taxonomy coverage, and sanitized
 When adding or renaming an alert category:
 
 1. Update `taxonomy/alert-types.json`.
-2. Add the exact `## ID — Category` heading to every mapped layer.
-3. Describe benign indicators, escalation indicators, required correlations, tuning gates, and the analyst workflow.
-4. Run `python scripts/validate_framework.py`.
+2. Create or rename the matching file in `playbooks/`.
+3. Add the exact `## ID — Category` heading to the baseline and tuning files.
+4. Update the taxonomy index.
+5. Run `python scripts/validate_framework.py`.
+
+## Playbook changes
+
+Every category playbook must retain its scope, required telemetry, baseline inputs, investigation and correlation steps, decision guidance, containment and follow-up, tuning restrictions, and closure record. Keep category-specific investigation logic in the playbook instead of duplicating it in a second workflow file.
 
 ## Tuning changes
 

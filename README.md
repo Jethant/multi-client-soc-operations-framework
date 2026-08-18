@@ -1,6 +1,6 @@
 # Multi-Client SOC Triage Framework
 
-A structured triage methodology for analysts working across multiple Microsoft security environments. The framework connects alert taxonomy, client context, baselines, investigation heuristics, correlation, tuning, outreach, and closure documentation.
+A structured triage methodology for analysts working across multiple Microsoft security environments. The framework connects alert taxonomy, client context, baselines, category playbooks, tuning, outreach, and closure documentation.
 
 ## Status and intended use
 
@@ -16,10 +16,9 @@ Two safety rules apply throughout the framework:
 1. Identify the category in the [taxonomy](taxonomy/README.md).
 2. Load the approved [client context](customer-specific-context/README.md).
 3. Compare the activity with the relevant [baseline](baselines/README.md).
-4. Apply the category's [heuristics](heuristics/Heuristics-full-framework.md).
-5. Complete the [correlation workflow](correlation-workflows/correlation-workflows-list.md).
-6. Apply [tuning guidance](tuning/mapped-tuning-guidelines.md) only after the evidence gate is satisfied.
-7. Follow the [workflow guide](workflow-guides/mapped-workflow-guides.md) and document the result with the [closure template](incident-closure-library/README.md).
+4. Follow the category's [playbook](playbooks/README.md), which combines investigation, correlation, decision, containment, and closure guidance.
+5. Apply [tuning guidance](tuning/mapped-tuning-guidelines.md) only after the playbook is complete and its evidence gate is satisfied.
+6. Document the result with the [closure template](incident-closure-library/README.md) and use approved [outreach](outreach-templates/email-canned-replies.md) when needed.
 
 ## Framework structure
 
@@ -28,10 +27,8 @@ Two safety rules apply throughout the framework:
 | [Taxonomy](taxonomy/README.md) | Stable IDs and definitions for supported alert categories |
 | [Client context](customer-specific-context/README.md) | Approved, time-bounded context used during triage |
 | [Baselines](baselines/README.md) | Expected behavior with owners and review dates |
-| [Heuristics](heuristics/Heuristics-full-framework.md) | Benign and suspicious indicators plus evidence requirements |
-| [Correlation workflows](correlation-workflows/correlation-workflows-list.md) | Cross-signal checks across identity, device, network, and control telemetry |
+| [Category playbooks](playbooks/README.md) | Investigation, correlation, decision, containment, and closure steps by category |
 | [Tuning](tuning/mapped-tuning-guidelines.md) | Guardrailed suppression and auto-closure candidates |
-| [Workflow guides](workflow-guides/mapped-workflow-guides.md) | Repeatable analyst procedures |
 | [Outreach templates](outreach-templates/email-canned-replies.md) | Conditional, user-safe communications |
 | [Incident closure library](incident-closure-library/README.md) | Evidence-based documentation and sanitized examples |
 | [Threat hunting](threat-hunting/Threat-Hunting-Topics.md) | Hypothesis-driven follow-up investigations |

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate taxonomy coverage, internal links, and common naming mistakes."""
+"""Validate taxonomy, playbook coverage, internal links, and naming."""
 
 from __future__ import annotations
 
@@ -12,13 +12,22 @@ from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "taxonomy" / "alert-types.json"
-MAPPED_FILES = (
+CATEGORY_INDEX_FILES = (
     ROOT / "baselines" / "README.md",
-    ROOT / "heuristics" / "Heuristics-full-framework.md",
-    ROOT / "correlation-workflows" / "correlation-workflows-list.md",
     ROOT / "tuning" / "mapped-tuning-guidelines.md",
-    ROOT / "workflow-guides" / "mapped-workflow-guides.md",
 )
+PLAYBOOK_DIRECTORY = ROOT / "playbooks"
+PLAYBOOK_SECTIONS = (
+    "## Scope",
+    "## Required telemetry",
+    "## Baseline inputs",
+    "## Investigation and correlation",
+    "## Decision guidance",
+    "## Containment and follow-up",
+    "## Tuning restrictions",
+    "## Closure record",
+)
+CATEGORY_ID = re.compile(r"^SOC-\d{3}$")
 MARKDOWN_LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 
 
@@ -34,18 +43,68 @@ def validate_registry(errors: list[str]) -> None:
         return
 
     categories = data.get("categories", [])
-    ids = [entry.get("id") for entry in categories]
-    names = [entry.get("name") for entry in categories]
-    if not categories or len(ids) != len(set(ids)) or len(names) != len(set(names)):
-        fail("Taxonomy categories must have unique, non-empty IDs and names", errors)
+    if not isinstance(categories, list) or not categories:
+        fail("Taxonomy must contain a non-empty categories list", errors)
+        return
 
-    for path in MAPPED_FILES:
+    ids: list[str] = []
+    names: list[str] = []
+    registered_playbooks: set[Path] = set()
+
+    for entry in categories:
+        if not isinstance(entry, dict):
+            fail("Every taxonomy category must be an object", errors)
+            continue
+
+        category_id = entry.get("id")
+        name = entry.get("name")
+        playbook = entry.get("playbook")
+        if not isinstance(category_id, str) or not CATEGORY_ID.fullmatch(category_id):
+            fail(f"Invalid taxonomy category ID: {category_id!r}", errors)
+            continue
+        if not isinstance(name, str) or not name.strip():
+            fail(f"{category_id} must have a non-empty name", errors)
+            continue
+        if not isinstance(playbook, str) or not playbook.strip():
+            fail(f"{category_id} must have a playbook path", errors)
+            continue
+
+        ids.append(category_id)
+        names.append(name)
+        playbook_path = (ROOT / playbook).resolve()
+        try:
+            playbook_path.relative_to(PLAYBOOK_DIRECTORY.resolve())
+        except ValueError:
+            fail(f"{category_id} playbook must be inside playbooks/: {playbook}", errors)
+            continue
+
+        registered_playbooks.add(playbook_path)
+        if not playbook_path.exists():
+            fail(f"Missing playbook for {category_id}: {playbook}", errors)
+            continue
+
+        content = playbook_path.read_text(encoding="utf-8")
+        expected_title = f"# {category_id} — {name}"
+        if expected_title not in content:
+            fail(f"{playbook} is missing title: {expected_title}", errors)
+        for section in PLAYBOOK_SECTIONS:
+            if section not in content:
+                fail(f"{playbook} is missing section: {section}", errors)
+
+    if len(ids) != len(set(ids)) or len(names) != len(set(names)):
+        fail("Taxonomy categories must have unique IDs and names", errors)
+
+    actual_playbooks = set(PLAYBOOK_DIRECTORY.glob("SOC-*.md"))
+    for unregistered in sorted(actual_playbooks - registered_playbooks):
+        fail(f"Unregistered playbook: {unregistered.relative_to(ROOT)}", errors)
+
+    for path in CATEGORY_INDEX_FILES:
         if not path.exists():
-            fail(f"Missing mapped file: {path.relative_to(ROOT)}", errors)
+            fail(f"Missing category index file: {path.relative_to(ROOT)}", errors)
             continue
         content = path.read_text(encoding="utf-8")
-        for entry in categories:
-            heading = f"## {entry['id']} — {entry['name']}"
+        for category_id, name in zip(ids, names):
+            heading = f"## {category_id} — {name}"
             if heading not in content:
                 fail(f"{path.relative_to(ROOT)} is missing heading: {heading}", errors)
 

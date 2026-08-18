@@ -12,3 +12,4 @@
 - Aligned closure outcomes with native Microsoft Sentinel incident classifications.
 - Required the latest incident status to be closed in closure reporting queries.
 - Removed confidence scoring fields while preserving evidence limitations and remaining uncertainty.
+- Consolidated heuristics, correlation workflows, and workflow guides into one playbook per taxonomy category.
