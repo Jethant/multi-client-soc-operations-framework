@@ -2,7 +2,7 @@
 
 ## Incident overview
 
-A malicious-website alert was generated after a user attempted to access a suspicious domain during routine browsing. The site redirected the browser through infrastructure classified as malicious, and Microsoft Defender Network Protection blocked the resulting outbound connection attempts.
+The incident originated from an alert named **Financially motivated threat actor** after a user attempted to access a suspicious domain during routine browsing. The alert name reflected threat-intelligence associations between supplied indicators and financially motivated threat activity. The site redirected the browser through infrastructure classified as malicious, and Microsoft Defender Network Protection blocked the resulting outbound connection attempts.
 
 Detonation of the referenced URL in Joe Sandbox resolved to an abnormal index page containing a fraudulent sign-in prompt. The service classified the URL as malicious. The investigation focused on determining whether the redirects resulted in credential entry, payload execution, persistence, or related identity activity.
 
@@ -14,9 +14,9 @@ Detonation of the referenced URL in Joe Sandbox resolved to an abnormal index pa
 - No payload execution, persistence, anomalous identity or MFA activity, lateral movement, or related file activity was identified in the scoped telemetry.
 - Additional DNS and HTTPS activity to `fonts.gstatic.com` and `encrypted-tbn0.gstatic.com` was consistent with normal Chrome background traffic and was separated from the malicious redirect chain.
 
-## Attribution limits
+## Attribution context and limits
 
-The evidence established interaction with malicious redirect infrastructure, but it did not establish the identity or financial motivation of a specific threat actor. The case was therefore classified by the observed behavior rather than by an assumed actor profile.
+The alert and its linked intelligence associated certain indicators with financially motivated threat activity. That context was retained as part of the original detection, while the endpoint investigation independently established interaction with malicious redirect infrastructure. The available endpoint evidence did not independently identify a specific actor, so the final assessment describes the observed behavior without discarding the alert provider's attribution context.
 
 ## Response and remediation
 

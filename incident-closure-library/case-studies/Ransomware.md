@@ -15,15 +15,16 @@ The user had visited a website that appeared legitimate before the browser was r
 - A tenant-wide hunt for the identified destinations found no additional affected users or devices.
 - Threat context suggested that the redirect activity could target a Chrome vulnerability, but the available evidence did not establish exploitation of a specific CVE on the endpoint.
 
-## Sanitized indicators
+## Historical indicators
 
-The original domains and IP addresses were replaced with reserved documentation values:
+These were the defanged domains and external IP addresses recorded during the investigation. Reputation and geolocation observations reflect the sources available at that time.
 
-- `hxxps://redirect-a[.]invalid`
-- `hxxps://redirect-b[.]invalid`
-- `hxxps://redirect-c[.]invalid`
-- `192.0.2.57`
-- `198.51.100.166`
+- `hxxps://solar-mems.cxm`
+- `hxxps://goodpersonofourcentury.cxm` — classified as malicious by VirusTotal
+- `213.109.203.57` — geolocated to the Netherlands during the investigation
+- `hxxps://besthappyfamily.cxm` — classified as malicious by VirusTotal
+- `149.56.95.166` — geolocated to Estonia during the investigation
+- `hxxps://waysmakeyourlifebetter.cxm` — classified as malicious by VirusTotal
 
 ## Response and remediation
 
