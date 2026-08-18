@@ -24,6 +24,10 @@ Compare software, scripts, administrative tools, signers, paths, process relatio
 4. Compare activity with approved software and testing context, including owner and expiration.
 5. Determine whether a nominally approved binary was used abnormally.
 
+## Potential MITRE ATT&CK® mappings
+
+This category spans many endpoint behaviors and has no fixed category-level mapping. Assign the most specific technique supported by the process, persistence, credential-access, network, remote-execution, or lateral-movement evidence.
+
 ## Decision guidance
 
 **BenignPositive candidate:** Software owner, signer, hash, path, parent process, command line, and network behavior all match an approved use, with no malicious capability or follow-on activity.

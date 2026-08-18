@@ -1,6 +1,6 @@
 # Multi-Client SOC Triage Framework
 
-A practical triage reference for analysts working across multiple Microsoft security environments. It combines a shared taxonomy, one baseline per client, category playbooks, tuning rules, outreach templates, and closure notes.
+A practical triage reference for analysts working across multiple Microsoft security environments. It combines a shared operational taxonomy, one baseline per client, category playbooks, tuning rules, outreach templates, and closure notes.
 
 ## Status and intended use
 
@@ -23,7 +23,7 @@ Core rules:
 
 | Layer | Purpose |
 | --- | --- |
-| [Taxonomy](taxonomy/README.md) | Stable IDs and definitions for supported alert categories |
+| [Taxonomy](taxonomy/README.md) | Stable operational categories for routing alerts, with evidence-based MITRE ATT&CK® mappings in the playbooks |
 | [Client profile and baseline](client-profile/README.md) | Client context, expected behavior, operational cycles, and exceptions |
 | [Category playbooks](playbooks/README.md) | Investigation and response checklists by category |
 | [Tuning policy](tuning/README.md) | Universal testing, ownership, expiration, rollback, and review requirements |

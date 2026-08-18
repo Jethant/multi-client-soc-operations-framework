@@ -24,6 +24,10 @@ Check authorized policy administrators, naming, protected controls, deployment r
 4. Review policy evaluations, failures, exclusions, bypass, and risky follow-on access.
 5. Determine whether the change weakened protection for privileged identities, sensitive applications, or broad populations.
 
+## Potential MITRE ATT&CK® mappings
+
+- [T1556.009 — Conditional Access Policies](https://attack.mitre.org/techniques/T1556/009/) when a policy is disabled or modified to enable persistent access or bypass expected authentication controls.
+
 ## Decision guidance
 
 **BenignPositive candidate:** The authorized actor, managed device, approval, maintenance window, intended configuration, and resulting controls all agree.

@@ -24,6 +24,13 @@ Check lifecycle systems and administrators, employee and contractor workflows, a
 4. For deletion, confirm retention, audit, ownership transfer, recovery, and offboarding requirements.
 5. Determine whether the action bypassed the approved lifecycle workflow.
 
+## Potential MITRE ATT&CK® mappings
+
+- [T1136.001 — Local Account](https://attack.mitre.org/techniques/T1136/001/) when an adversary creates a local account to maintain access.
+- [T1136.002 — Domain Account](https://attack.mitre.org/techniques/T1136/002/) when an adversary creates a domain account to maintain access.
+- [T1136.003 — Cloud Account](https://attack.mitre.org/techniques/T1136/003/) when an adversary creates a cloud identity to maintain access.
+- [T1531 — Account Access Removal](https://attack.mitre.org/techniques/T1531/) when disablement or deletion is used to interrupt legitimate access.
+
 ## Decision guidance
 
 **BenignPositive candidate:** The approved lifecycle source or authorized administrator performed the documented action, and account type, owner, timing, initial access, and expiration all agree.

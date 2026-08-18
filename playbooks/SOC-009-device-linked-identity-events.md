@@ -24,6 +24,11 @@ Check inventory, device identities, naming, enrollment tools, ownership, local-a
 4. Search for related identity and device behavior across the environment.
 5. Determine whether suspicious follow-on access occurred from the device.
 
+## Potential MITRE ATT&CK® mappings
+
+- [T1098.005 — Device Registration](https://attack.mitre.org/techniques/T1098/005/) when an adversary registers a controlled device to a compromised identity or tenant for persistence or access-policy bypass.
+- [T1136.001 — Local Account](https://attack.mitre.org/techniques/T1136/001/) when an unapproved local account is created on a device to maintain access.
+
 ## Decision guidance
 
 **BenignPositive candidate:** Device identity, enrollment, owner, actor, approved management process, and provisioning window all agree, with no suspicious follow-on activity.

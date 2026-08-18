@@ -13,7 +13,14 @@ When adding or renaming an alert category:
 
 ## Playbook changes
 
-Keep the required playbook sections: scope, telemetry, baseline checks, investigation, decision, containment, tuning, and closure. Category-specific logic belongs in the playbook, not in a second index.
+Keep the required playbook sections: scope, telemetry, baseline checks, investigation, ATT&CK mapping, decision, containment, tuning, and closure. Category-specific logic belongs in the playbook, not in a second index.
+
+## MITRE ATT&CK® mappings
+
+- Map behavior established by the investigation, not the alert name or category alone.
+- Use the most specific applicable Enterprise technique or sub-technique and link to its official ATT&CK page.
+- State the evidence condition for every candidate mapping.
+- Leave legitimate or inconclusive activity unmapped and avoid exhaustive lists for broad categories.
 
 ## Client profile and baseline changes
 

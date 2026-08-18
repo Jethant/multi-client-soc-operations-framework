@@ -24,6 +24,10 @@ Check authorized actors and owners, applications, service principals, deployment
 4. Search for token use, new sign-ins, permission grants, consent, or role changes after credential creation.
 5. Determine whether the credential bypassed the approved deployment and rotation workflow.
 
+## Potential MITRE ATT&CK® mappings
+
+- [T1098.001 — Additional Cloud Credentials](https://attack.mitre.org/techniques/T1098/001/) when a secret or certificate is added to an application or service principal to maintain persistent access.
+
 ## Decision guidance
 
 **BenignPositive candidate:** Authorized actor and owner, approved deployment, managed device, change record, credential type and lifetime, storage, and unchanged permission scope all agree.
