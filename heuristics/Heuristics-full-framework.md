@@ -1,6 +1,6 @@
 # Investigation heuristics
 
-Heuristics guide investigation; they do not replace evidence. A **BenignPositive** classification requires all required telemetry, at least two independent benign indicators, no unresolved escalation indicator, and a current client baseline. Otherwise classify the incident as **Undetermined** or escalate it.
+Heuristics guide investigation. A **BenignPositive** classification requires all required telemetry, at least two independent benign indicators, no unresolved escalation indicator, and a current client baseline. Otherwise classify the incident as **Undetermined** or escalate it.
 
 ## Required closure record
 
