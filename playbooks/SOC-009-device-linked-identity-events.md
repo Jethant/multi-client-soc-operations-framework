@@ -14,7 +14,7 @@ Identity activity that requires endpoint, inventory, enrollment, local-account, 
 
 ## Client baseline checks
 
-Use the [client profile and operational baseline](../client-profile/README.md) to verify managed device inventory, identities, naming conventions, enrollment and provisioning tools, ownership, local-account patterns, management processes, and maintenance windows.
+Check inventory, device identities, naming, enrollment tools, ownership, local-account patterns, management processes, and maintenance windows against the client profile.
 
 ## Investigation and correlation
 
@@ -40,10 +40,6 @@ Use the [client profile and operational baseline](../client-profile/README.md) t
 - Hunt linked identities, devices, processes, and sessions.
 
 ## Tuning
-
-Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
-
-**Automation candidate:** Managed device, approved enrollment or provisioning workflow, expected management process, actor, and time window all match.
 
 **Never auto-close:** Unmanaged or duplicate devices, abnormal processes, remote access, local privilege changes, or correlated identity risk.
 

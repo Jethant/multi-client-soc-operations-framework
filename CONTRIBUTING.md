@@ -9,15 +9,15 @@ When adding or renaming an alert category:
 1. Update `taxonomy/alert-types.json`.
 2. Create or rename the matching file in `playbooks/`.
 3. Update the taxonomy index.
-4. Run `python scripts/validate_framework.py`.
+4. Run `python .github/scripts/validate_framework.py`.
 
 ## Playbook changes
 
-Every category playbook must retain its scope, required telemetry, client baseline checks, investigation and correlation steps, decision guidance, containment and follow-up, category-specific tuning criteria, and closure record. Keep category-specific logic in the playbook instead of duplicating it in a baseline or tuning index.
+Keep the required playbook sections: scope, telemetry, baseline checks, investigation, decision, containment, tuning, and closure. Category-specific logic belongs in the playbook, not in a second index.
 
 ## Client profile and baseline changes
 
-- Maintain one profile and operational baseline per client in the client's approved storage location.
+- Maintain one profile and baseline per client in the client's approved storage location.
 - Organize expected behavior by stable environment domain, not alert category.
 - Record sources and review dates for time-sensitive facts and exceptions.
 - Treat stale or missing profile data as unknown, never as evidence that activity is benign.
@@ -46,4 +46,4 @@ Every category playbook must retain its scope, required telemetry, client baseli
 
 ## Pull requests
 
-Summarize what changed, why it changed, operational impact, and validation performed. Keep unrelated edits in separate changes.
+Summarize what changed, why, how it affects analysts, and what you tested. Keep unrelated edits in separate changes.

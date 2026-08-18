@@ -14,7 +14,7 @@ Creation, modification, deletion, disablement, exclusion, or bypass of Condition
 
 ## Client baseline checks
 
-Use the [client profile and operational baseline](../client-profile/README.md) to verify authorized policy administrators, policy naming, protected controls, deployment rings, maintenance windows, and the current change workflow.
+Check authorized policy administrators, naming, protected controls, deployment rings, maintenance windows, and the change workflow in the client profile.
 
 ## Investigation and correlation
 
@@ -40,10 +40,6 @@ Use the [client profile and operational baseline](../client-profile/README.md) t
 - Preserve policy configuration and audit evidence.
 
 ## Tuning
-
-Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
-
-**Automation candidate:** Actor, managed device, approved ticket, maintenance window, before-and-after policy scope, and resulting controls all match.
 
 **Never auto-close:** Control removal, broad exclusions, policy disablement, access expansion, or an anomalous administrative session.
 

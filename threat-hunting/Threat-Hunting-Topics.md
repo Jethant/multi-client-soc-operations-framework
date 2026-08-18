@@ -29,4 +29,4 @@ Threat hunting begins with a falsifiable hypothesis, not a high alert count alon
 - Detection, hardening, baseline, or tuning recommendations
 - Owner, priority, and due date
 
-Do not convert a hunt result directly into suppression logic. Validate proposed tuning independently through the tuning automation gate.
+Do not turn a hunt result directly into suppression logic. Test any proposed change under the [tuning policy](../tuning/README.md).

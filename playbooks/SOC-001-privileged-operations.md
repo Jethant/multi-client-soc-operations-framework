@@ -14,7 +14,7 @@ Administrative actions, role changes, privileged access, and changes to protecte
 
 ## Client baseline checks
 
-Use the [client profile and operational baseline](../client-profile/README.md) to verify expected administrative roles, managed administrative devices, network paths, maintenance windows, common tasks, change records, and normal PIM, MFA, and break-glass workflows. Familiarity alone is not proof of legitimacy.
+Confirm expected administrative roles, devices, network paths, maintenance windows, common tasks, change records, and PIM, MFA, and break-glass workflows against the client profile. Familiarity alone is not proof of legitimacy.
 
 ## Investigation and correlation
 
@@ -26,7 +26,7 @@ Use the [client profile and operational baseline](../client-profile/README.md) t
 
 ## Decision guidance
 
-**BenignPositive candidate:** The actor, managed administrative device, approval, PIM/MFA evidence, action, and resulting scope all agree with current context.
+**BenignPositive candidate:** The actor, managed administrative device, approved workflow and time window, PIM/MFA evidence, action, and resulting scope all agree with current context.
 
 **Escalate or classify TruePositive when:** Privilege expands unexpectedly, a protected control is weakened, a new administrator appears, a break-glass account is used unexpectedly, or related identity/device activity remains unexplained.
 
@@ -40,10 +40,6 @@ Use the [client profile and operational baseline](../client-profile/README.md) t
 - Hunt for related administrative actions, identities, applications, and devices.
 
 ## Tuning
-
-Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
-
-**Automation candidate:** Actor, managed administrative device, approved workflow, PIM/MFA evidence, change record, and time window all match.
 
 **Never auto-close:** Privilege expansion, protected-control changes, break-glass use, unexpected role assignment, or correlated identity/device anomalies.
 

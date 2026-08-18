@@ -14,7 +14,7 @@ Creation, deletion, disablement, and lifecycle activity for user, service, test,
 
 ## Client baseline checks
 
-Use the [client profile and operational baseline](../client-profile/README.md) to verify authorized lifecycle systems and administrators, employee and contractor workflows, account types, initial groups, licenses and roles, timing, ownership, and expiration practices.
+Check lifecycle systems and administrators, employee and contractor workflows, account types, initial access, timing, ownership, and expiration against the client profile.
 
 ## Investigation and correlation
 
@@ -40,10 +40,6 @@ Use the [client profile and operational baseline](../client-profile/README.md) t
 - Transfer ownership and restore retention or recovery controls when required.
 
 ## Tuning
-
-Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
-
-**Automation candidate:** Approved lifecycle source, authorized actor, business owner, ticket, account type, initial access profile, and timing all match.
 
 **Never auto-close:** Privileged or unowned accounts, lifecycle bypass, unexpected first sign-in, abnormal credential creation, missing expiration, or deletion that affects audit and retention.
 

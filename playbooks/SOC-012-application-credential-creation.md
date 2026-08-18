@@ -14,7 +14,7 @@ Secrets or certificates added to applications or service principals, including r
 
 ## Client baseline checks
 
-Use the [client profile and operational baseline](../client-profile/README.md) to verify authorized actors and owners, approved applications and service principals, deployment pipelines, credential type and lifetime standards, storage and rotation workflows, permissions, roles, and consent.
+Check authorized actors and owners, applications, service principals, deployment pipelines, credential standards, storage and rotation, permissions, roles, and consent against the client profile.
 
 ## Investigation and correlation
 
@@ -40,10 +40,6 @@ Use the [client profile and operational baseline](../client-profile/README.md) t
 - Hunt subsequent token use, sign-ins, and resource access.
 
 ## Tuning
-
-Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
-
-**Automation candidate:** Authorized actor and application owner, approved deployment, change record, managed device, expected credential type and lifetime, and unchanged permission scope all match.
 
 **Never auto-close:** Long-lived secrets, dormant or high-privilege applications, missing owners, new consent, expanded permissions, risky actor activity, or unexplained token use.
 

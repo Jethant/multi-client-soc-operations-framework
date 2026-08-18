@@ -2,7 +2,7 @@
 
 ## External-service safety
 
-Treat every external lookup, sandbox, and AI service as a third-party disclosure boundary.
+Anything submitted to a lookup site, sandbox, or AI service leaves the client environment.
 
 - Follow client approval and organizational policy before submitting any artifact.
 - Prefer a hash or defanged indicator before uploading a file, URL, message, or log.

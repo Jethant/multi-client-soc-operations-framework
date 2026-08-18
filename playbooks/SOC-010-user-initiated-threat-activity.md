@@ -14,7 +14,7 @@ Phishing, malicious links, attachments, downloads, credential submission, and ot
 
 ## Client baseline checks
 
-Use the [client profile and operational baseline](../client-profile/README.md) to verify approved simulations, expected email, browser and endpoint controls, reporting workflows, available telemetry, and known coverage gaps.
+Check approved simulations, email, browser and endpoint controls, reporting workflows, telemetry coverage, and known gaps in the client profile.
 
 ## Investigation and correlation
 
@@ -40,10 +40,6 @@ Use the [client profile and operational baseline](../client-profile/README.md) t
 - Notify affected users using the approved [outreach template](../outreach-templates/email-canned-replies.md).
 
 ## Tuning
-
-Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
-
-**Automation candidate:** Control telemetry confirms a block and independent endpoint plus identity evidence confirms no execution, submission, new session, token abuse, or MFA change.
 
 **Never auto-close:** Unavailable device telemetry, credential or data submission, attachment execution, payload write, repeated interaction, or related affected entities.
 
