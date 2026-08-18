@@ -21,7 +21,7 @@ The original indicators were replaced with reserved documentation values:
 - `192.0.2.57`
 - `198.51.100.166`
 
-Do not use these example values as production indicators.
+These reserved values are documentation examples.
 
 ## Inference and limits
 

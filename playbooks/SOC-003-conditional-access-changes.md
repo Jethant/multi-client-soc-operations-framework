@@ -41,7 +41,7 @@ Check authorized policy administrators, naming, protected controls, deployment r
 
 ## Tuning
 
-**Never auto-close:** Control removal, broad exclusions, policy disablement, access expansion, or an anomalous administrative session.
+**Keep under analyst review:** Control removal, broad exclusions, policy disablement, access expansion, or an anomalous administrative session.
 
 ## Closure record
 

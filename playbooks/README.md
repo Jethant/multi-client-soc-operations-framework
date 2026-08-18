@@ -10,14 +10,14 @@ After choosing a taxonomy category, use its playbook as the investigation and re
 4. Open the matching playbook from the taxonomy table.
 5. Load the client's current [profile and baseline](../client-profile/README.md) and complete the playbook's baseline checks.
 6. Record supporting, contradicting, and unavailable evidence.
-7. Contain or escalate before considering tuning.
-8. Consider tuning only after the investigation is complete; apply both the playbook criteria and the central [tuning policy](../tuning/README.md).
+7. Contain or escalate as needed.
+8. After the investigation, apply the playbook criteria and central [tuning policy](../tuning/README.md).
 9. Document the result with the [incident closure template](../incident-closure-library/README.md).
 
 ## Classification
 
-Use the native Microsoft Sentinel values defined in the [incident closure template](../incident-closure-library/README.md). Missing required telemetry results in `Undetermined`, not `BenignPositive`.
+Use the native Microsoft Sentinel values defined in the [incident closure template](../incident-closure-library/README.md). Classify missing required telemetry as `Undetermined`.
 
 ## Tuning
 
-The `BenignPositive` conditions in a playbook are the minimum evidence for a tuning candidate, not automatic approval. The playbook's `Never auto-close` rule and the central [tuning policy](../tuning/README.md) also apply.
+A tuning candidate must meet the playbook's `BenignPositive` conditions, remain outside its `Keep under analyst review` conditions, and pass the central [tuning policy](../tuning/README.md).

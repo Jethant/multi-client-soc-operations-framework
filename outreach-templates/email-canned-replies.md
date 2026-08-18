@@ -1,6 +1,6 @@
 # Email investigation outreach templates
 
-Replace every bracketed field and remove statements not supported by the investigation. Do not promise that future messages will be blocked.
+Replace every bracketed field. Describe only findings and actions supported by the investigation.
 
 ## Phishing simulation
 
@@ -32,10 +32,10 @@ Please stop interacting with the page and contact **[approved security/helpdesk 
 
 ## Credential or sensitive-data submission suspected
 
-We are investigating possible credential or sensitive-data exposure related to **[message subject or reference]**. Do not use links in the original message.
+We are investigating possible credential or sensitive-data exposure related to **[message subject or reference]**. Use the official recovery channel instead of links in the original message.
 
 Contact **[approved security/helpdesk channel]** now and follow the organization's official recovery process. The security team will coordinate password reset, session revocation, MFA-method review, and any additional containment. Report what information was entered and the approximate time.
 
 ## Attachment opened or execution suspected
 
-We are investigating a potentially malicious attachment associated with **[message subject or reference]**. Stop using the affected device and contact **[approved security channel]** immediately. Do not delete files, run cleanup tools, or power off the device unless instructed; preserving evidence may be important.
+We are investigating a potentially malicious attachment associated with **[message subject or reference]**. Stop using the affected device and contact **[approved security channel]** immediately. Leave files and device state unchanged unless instructed so evidence is preserved.

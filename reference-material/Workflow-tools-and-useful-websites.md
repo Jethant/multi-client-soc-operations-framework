@@ -6,7 +6,7 @@ Anything submitted to a lookup site, sandbox, or AI service leaves the client en
 
 - Follow client approval and organizational policy before submitting any artifact.
 - Prefer a hash or defanged indicator before uploading a file, URL, message, or log.
-- Never submit credentials, tokens, personal data, internal-only URLs, raw client email, or unredacted case evidence.
+- Submit sanitized indicators and keep credentials, tokens, personal data, internal URLs, client email, and case evidence in approved systems.
 - Use an isolated analysis environment for suspicious files and links.
 - Record the service, submission time, and sanitized result in the protected case system.
 
@@ -26,7 +26,7 @@ Anything submitted to a lookup site, sandbox, or AI service leaves the client en
 
 ## AI assistants
 
-Use only accounts and data-handling configurations approved by the organization. Do not paste client evidence or internal identifiers into a public or personal account.
+Use organization-approved accounts and data-handling settings with sanitized inputs.
 
 - [Microsoft Copilot](https://copilot.microsoft.com/)
 - [ChatGPT](https://chatgpt.com/)
@@ -46,4 +46,4 @@ Use only accounts and data-handling configurations approved by the organization.
 - [The Hacker News](https://thehackernews.com/)
 - [Infosecurity Magazine](https://www.infosecurity-magazine.com/news/)
 
-External reporting is context, not proof. Confirm material claims with primary vendor advisories, authoritative incident data, or multiple independent sources.
+Confirm material claims with primary vendor advisories, authoritative incident data, or multiple independent sources.

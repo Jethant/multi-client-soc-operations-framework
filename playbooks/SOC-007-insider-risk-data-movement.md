@@ -41,7 +41,7 @@ Compare repositories, data classifications, normal volume and frequency, destina
 
 ## Tuning
 
-**Never auto-close:** Sensitive data, external or personal destinations, unusual volume, staging or compression, concealment, off-hours activity, or identity/device anomalies.
+**Keep under analyst review:** Sensitive data, external or personal destinations, unusual volume, staging or compression, concealment, off-hours activity, or identity/device anomalies.
 
 ## Closure record
 

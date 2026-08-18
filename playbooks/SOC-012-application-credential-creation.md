@@ -41,7 +41,7 @@ Check authorized actors and owners, applications, service principals, deployment
 
 ## Tuning
 
-**Never auto-close:** Long-lived secrets, dormant or high-privilege applications, missing owners, new consent, expanded permissions, risky actor activity, or unexplained token use.
+**Keep under analyst review:** Long-lived secrets, dormant or high-privilege applications, missing owners, new consent, expanded permissions, risky actor activity, or unexplained token use.
 
 ## Closure record
 

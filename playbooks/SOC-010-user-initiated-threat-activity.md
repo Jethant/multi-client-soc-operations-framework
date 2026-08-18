@@ -41,7 +41,7 @@ Check approved simulations, email, browser and endpoint controls, reporting work
 
 ## Tuning
 
-**Never auto-close:** Unavailable device telemetry, credential or data submission, attachment execution, payload write, repeated interaction, or related affected entities.
+**Keep under analyst review:** Unavailable device telemetry, credential or data submission, attachment execution, payload write, repeated interaction, or related affected entities.
 
 ## Closure record
 

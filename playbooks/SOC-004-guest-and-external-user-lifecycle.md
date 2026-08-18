@@ -41,7 +41,7 @@ Check approved inviters, sponsors, partner domains, projects, access packages, g
 
 ## Tuning
 
-**Never auto-close:** Privileged access, sensitive-group membership, missing sponsor, persistent access, unusual sign-ins, or unexpected data movement.
+**Keep under analyst review:** Privileged access, sensitive-group membership, missing sponsor, persistent access, unusual sign-ins, or unexpected data movement.
 
 ## Closure record
 
