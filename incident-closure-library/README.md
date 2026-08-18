@@ -7,7 +7,7 @@ This section contains an evidence-based closure template and sanitized case stud
 - Document the client scope and UTC investigation window.
 - Record every data source checked and any unavailable telemetry.
 - Cite evidence for material claims; do not convert absence of evidence into proof of absence.
-- State remaining uncertainty and confidence.
+- State remaining uncertainty.
 - Assign an owner and due date to every follow-up action.
 
 ## Incident documentation template
@@ -71,12 +71,11 @@ Use the native Microsoft Sentinel incident classification values:
 - `FalsePositive` — the incident resulted from incorrect alert logic or inaccurate data
 - `Undetermined` — the available evidence is insufficient or contradictory
 - Classification reason, when applicable
-- Confidence: low / medium / high
 - Remaining uncertainty
 
 ### 9. Closure statement
 
-> Reviewed **[incident]** for **[client scope]** over **[UTC time range]**. Evidence from **[sources]** established **[observed facts]**. The activity **[matched/did not match]** baseline **[reference]**. Unavailable or contradictory evidence: **[details or none]**. Disposition: **[classification]**, confidence **[level]**. Follow-up: **[owner and due date or none]**.
+> Reviewed **[incident]** for **[client scope]** over **[UTC time range]**. Evidence from **[sources]** established **[observed facts]**. The activity **[matched/did not match]** baseline **[reference]**. Unavailable or contradictory evidence: **[details or none]**. Classification: **[Microsoft Sentinel classification]**. Follow-up: **[owner and due date or none]**.
 
 ### 10. Follow-up actions
 

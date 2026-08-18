@@ -26,4 +26,4 @@ The behavior was consistent with a drive-by compromise attempt. The evidence did
 
 Blocked access to malicious redirect infrastructure with no successful compromise identified in the available telemetry.
 
-**Confidence:** Medium; closure depends on complete endpoint and network telemetry.
+**Remaining limitation:** The determination depends on complete endpoint and network telemetry.

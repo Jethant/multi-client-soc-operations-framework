@@ -8,7 +8,7 @@ Heuristics guide investigation; they do not replace evidence. A **BenignPositive
 - Data sources checked and any unavailable telemetry
 - Evidence supporting and contradicting the conclusion
 - Correlated alerts or incidents
-- Analyst confidence and remaining uncertainty
+- Remaining uncertainty
 - Closure classification and follow-up owner
 
 ## SOC-001 — Privileged Operations
@@ -153,7 +153,7 @@ Heuristics guide investigation; they do not replace evidence. A **BenignPositive
 
 - The alert involves credential theft, persistence, evasion, remote execution, or lateral movement.
 - A nominally approved binary exhibits an abnormal path, parent, command line, or destination.
-- Low severity repeats across endpoints or correlates with higher-confidence telemetry.
+- Low severity repeats across endpoints or correlates with higher-fidelity telemetry.
 
 ## SOC-012 — Application Credential Creation
 
@@ -171,4 +171,4 @@ Heuristics guide investigation; they do not replace evidence. A **BenignPositive
 
 ## Evidence-based closing note
 
-> Reviewed **[category and incident]** for **[client scope]** over **[UTC time range]**. Evidence from **[data sources]** showed **[observed facts]**. The activity **[matched/did not match]** baseline **[reference and review date]**. Contradictory or unavailable evidence: **[details or none]**. Disposition: **[classification]**, confidence **[low/medium/high]**. Follow-up: **[action, owner, and due date or none]**.
+> Reviewed **[category and incident]** for **[client scope]** over **[UTC time range]**. Evidence from **[data sources]** showed **[observed facts]**. The activity **[matched/did not match]** baseline **[reference and review date]**. Contradictory or unavailable evidence: **[details or none]**. Classification: **[Microsoft Sentinel classification]**. Follow-up: **[action, owner, and due date or none]**.

@@ -11,3 +11,4 @@
 - Added automated taxonomy, link, and naming validation.
 - Aligned closure outcomes with native Microsoft Sentinel incident classifications.
 - Required the latest incident status to be closed in closure reporting queries.
+- Removed confidence scoring fields while preserving evidence limitations and remaining uncertainty.

@@ -13,7 +13,6 @@ Every operational baseline should record:
 - Change or project reference, when applicable
 - Known exceptions and their expiration dates
 - Last validated date and next review date
-- Confidence: low, medium, or high
 
 Expired or unowned baselines must not support automated closure.
 
