@@ -1,16 +1,8 @@
 # Client profile and operational baseline
 
-Keep one profile and baseline per client. It records client context and normal behavior and replaces alert-specific baseline files. Each playbook lists the fields it needs.
+Keep one profile and baseline per client. It records client context and normal behavior. Each playbook lists the fields it needs.
 
 This public repository contains the template only. Completed profiles with live client identities, ranges, systems, contacts, or case details belong in the approved storage location for that client.
-
-## Profile metadata
-
-- Non-sensitive client reference
-- Profile maintainer
-- Data sources and records used
-- Last reviewed date
-- Next review date
 
 Give time-sensitive facts a source and review date. Automated closure and tuning require current, verified information.
 
@@ -25,7 +17,7 @@ Give time-sensitive facts a source and review date. Automated closure and tuning
 
 - Administrative roles, responsible teams, and expected named or service identities
 - PIM, MFA, break-glass, and privileged-access workflows
-- Administrative devices, jump hosts, network paths, and maintenance windows
+- Administrative devices, network paths, and maintenance windows
 - Normal onboarding, offboarding, role-change, and account-recovery processes
 
 ## 3. Authentication patterns
@@ -33,18 +25,18 @@ Give time-sensitive facts a source and review date. Automated closure and tuning
 - Supported authentication and MFA methods
 - Normal failure volume and failure-to-success timing by user population
 - Expected service accounts, legacy clients, lockouts, and recovery activity
-- Familiar locations and managed-device patterns used only as supporting context
+- Familiar locations and managed-device patterns
 
 ## 4. Network and location
 
-- Corporate, VPN, cloud-egress, office, remote-work, and partner ranges
+- Corporate, VPN, office, remote-work, and partner ranges
 - Expected travel and remote-access patterns
 - Externally exposed and legacy systems
 - Owner and expiration for every temporary network or location exception
 
 ## 5. Devices and software
 
-- Managed platforms, inventory sources, ownership, and naming conventions
+- Managed platforms and ownership
 - Enrollment, provisioning, remote-management, support, update, and replacement workflows
 - Expected local identities and privileged groups
 - Approved software, scripts, administration tools, signers, processes, and network destinations
@@ -58,7 +50,6 @@ Give time-sensitive facts a source and review date. Automated closure and tuning
 
 ## 7. Data and collaboration
 
-- Sensitive data, departments, repositories, and classifications
 - Role-appropriate access, sharing audiences, and external destinations
 - Typical transfer volume, frequency, and workflow
 - Approved migration, backup, legal-discovery, and collaboration activity
@@ -67,21 +58,14 @@ Give time-sensitive facts a source and review date. Automated closure and tuning
 
 - Guest, contractor, employee, test-account, and service-account lifecycle processes
 - Active migrations, deployments, maintenance, simulations, and project windows
-- Seasonal activity and workload changes
+- Seasonal activity
 - Expected change records, deployment rings, access packages, and expiration practices
 
-## 9. Security controls and telemetry
-
-- Available identity, endpoint, email, network, application, data, and audit telemetry
-- Expected protective controls and reporting workflows
-- Telemetry retention and known coverage gaps
-- Protected controls and high-impact dependencies requiring escalation
-
-## 10. Known exceptions
+## 9. Known exceptions
 
 For each exception, record the behavior, owner, evidence, scope, start date, expiration date, and review date. Revalidate or retire it by the review date.
 
-## 11. Historical lessons and open actions
+## 10. Historical lessons and open actions
 
 - Past incidents and configuration problems
 - Known detection gaps
