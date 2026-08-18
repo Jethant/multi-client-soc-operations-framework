@@ -12,20 +12,25 @@ from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "taxonomy" / "alert-types.json"
-CATEGORY_INDEX_FILES = (
-    ROOT / "baselines" / "README.md",
-    ROOT / "tuning" / "mapped-tuning-guidelines.md",
+TAXONOMY_INDEX = ROOT / "taxonomy" / "README.md"
+REQUIRED_SHARED_FILES = (
+    ROOT / "client-profile" / "README.md",
+    ROOT / "tuning" / "README.md",
 )
 PLAYBOOK_DIRECTORY = ROOT / "playbooks"
 PLAYBOOK_SECTIONS = (
     "## Scope",
     "## Required telemetry",
-    "## Baseline inputs",
+    "## Client baseline checks",
     "## Investigation and correlation",
     "## Decision guidance",
     "## Containment and follow-up",
-    "## Tuning restrictions",
+    "## Tuning",
     "## Closure record",
+)
+PLAYBOOK_REFERENCES = (
+    "../client-profile/README.md",
+    "../tuning/README.md",
 )
 CATEGORY_ID = re.compile(r"^SOC-\d{3}$")
 MARKDOWN_LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
@@ -49,6 +54,7 @@ def validate_registry(errors: list[str]) -> None:
 
     ids: list[str] = []
     names: list[str] = []
+    index_entries: list[tuple[str, str, str]] = []
     registered_playbooks: set[Path] = set()
 
     for entry in categories:
@@ -79,6 +85,7 @@ def validate_registry(errors: list[str]) -> None:
             continue
 
         registered_playbooks.add(playbook_path)
+        index_entries.append((category_id, name, playbook))
         if not playbook_path.exists():
             fail(f"Missing playbook for {category_id}: {playbook}", errors)
             continue
@@ -90,6 +97,9 @@ def validate_registry(errors: list[str]) -> None:
         for section in PLAYBOOK_SECTIONS:
             if section not in content:
                 fail(f"{playbook} is missing section: {section}", errors)
+        for reference in PLAYBOOK_REFERENCES:
+            if reference not in content:
+                fail(f"{playbook} is missing shared reference: {reference}", errors)
 
     if len(ids) != len(set(ids)) or len(names) != len(set(names)):
         fail("Taxonomy categories must have unique IDs and names", errors)
@@ -98,15 +108,19 @@ def validate_registry(errors: list[str]) -> None:
     for unregistered in sorted(actual_playbooks - registered_playbooks):
         fail(f"Unregistered playbook: {unregistered.relative_to(ROOT)}", errors)
 
-    for path in CATEGORY_INDEX_FILES:
+    if not TAXONOMY_INDEX.exists():
+        fail(f"Missing taxonomy index: {TAXONOMY_INDEX.relative_to(ROOT)}", errors)
+    else:
+        index_content = TAXONOMY_INDEX.read_text(encoding="utf-8")
+        for category_id, name, playbook in index_entries:
+            if f"| {category_id} | {name} |" not in index_content:
+                fail(f"Taxonomy index is missing {category_id} — {name}", errors)
+            if f"(../{playbook})" not in index_content:
+                fail(f"Taxonomy index has no playbook link for {category_id}: {playbook}", errors)
+
+    for path in REQUIRED_SHARED_FILES:
         if not path.exists():
-            fail(f"Missing category index file: {path.relative_to(ROOT)}", errors)
-            continue
-        content = path.read_text(encoding="utf-8")
-        for category_id, name in zip(ids, names):
-            heading = f"## {category_id} — {name}"
-            if heading not in content:
-                fail(f"{path.relative_to(ROOT)} is missing heading: {heading}", errors)
+            fail(f"Missing shared framework file: {path.relative_to(ROOT)}", errors)
 
 
 def validate_links(errors: list[str]) -> None:

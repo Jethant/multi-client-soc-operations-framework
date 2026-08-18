@@ -12,9 +12,9 @@ MFA registration, replacement, removal, recovery-detail changes, and helpdesk or
 - Helpdesk, self-service recovery, and user-verification records
 - Sensitive actions following the method change
 
-## Baseline inputs
+## Client baseline checks
 
-Consult the **SOC-006** section of the [baseline](../baselines/README.md). Confirm approved recovery workflows, supported methods, helpdesk processes, and expected device-replacement activity.
+Use the [client profile and operational baseline](../client-profile/README.md) to verify approved self-service and helpdesk recovery workflows, supported MFA methods, expected device replacement, and onboarding patterns.
 
 ## Investigation and correlation
 
@@ -39,9 +39,13 @@ Consult the **SOC-006** section of the [baseline](../baselines/README.md). Confi
 - Reverify the user through an approved independent channel.
 - Review related device registrations and sensitive actions.
 
-## Tuning restrictions
+## Tuning
 
-Do not tune during investigation or containment. After classification, use the **SOC-006** section of the [tuning guidance](../tuning/mapped-tuning-guidelines.md) as the authoritative automation gate.
+Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
+
+**Automation candidate:** Approved self-service or helpdesk workflow, verified user, managed device, expected method, and clean sign-in timeline all agree.
+
+**Never auto-close:** New or removed methods during risky activity, ownership uncertainty, recovery-detail changes, unfamiliar sessions, or sensitive follow-on activity.
 
 ## Closure record
 

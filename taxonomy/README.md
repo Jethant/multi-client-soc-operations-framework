@@ -23,7 +23,6 @@ Adding or renaming a category requires:
 
 - an entry and playbook path in `taxonomy/alert-types.json`
 - a corresponding file in `playbooks/`
-- the same `ID — Category` heading in `baselines/README.md`
-- the same `ID — Category` heading in `tuning/mapped-tuning-guidelines.md`
+- the matching row in this index
 
-The repository validator enforces this coverage.
+Category-specific baseline checks and tuning criteria belong in that category's playbook. The repository validator enforces this coverage.

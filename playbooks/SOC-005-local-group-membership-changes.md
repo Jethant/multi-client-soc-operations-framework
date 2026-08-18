@@ -12,9 +12,9 @@ Additions to or removals from privileged local groups on endpoints and servers.
 - Device inventory, ownership, and provisioning state
 - Support, provisioning, or change ticket
 
-## Baseline inputs
+## Client baseline checks
 
-Consult the **SOC-005** section of the [baseline](../baselines/README.md). Confirm approved management tools, actors, target groups, device populations, and maintenance windows.
+Use the [client profile and operational baseline](../client-profile/README.md) to verify approved endpoint-management actors and tools, device populations, provisioning and support workflows, privileged local groups, normal change volume, and deployment windows.
 
 ## Investigation and correlation
 
@@ -39,9 +39,13 @@ Consult the **SOC-005** section of the [baseline](../baselines/README.md). Confi
 - Preserve commands, processes, sessions, and group membership history.
 - Hunt the actor, member, tool, and command across endpoints.
 
-## Tuning restrictions
+## Tuning
 
-Do not tune during investigation or containment. After classification, use the **SOC-005** section of the [tuning guidance](../tuning/mapped-tuning-guidelines.md) as the authoritative automation gate.
+Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
+
+**Automation candidate:** Approved management tool, support or provisioning ticket, expected device population, intended member, target group, and maintenance window all match.
+
+**Never auto-close:** Interactive or remote manual additions, broad device scope, unexpected privileged membership, suspicious processes, or missing endpoint telemetry.
 
 ## Closure record
 

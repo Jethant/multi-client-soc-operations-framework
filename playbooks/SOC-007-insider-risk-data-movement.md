@@ -12,9 +12,9 @@ Unusual access, download, upload, sharing, transfer, staging, compression, or de
 - Network, proxy, upload, and cloud-service telemetry
 - Role, project, HR, legal, and approved-migration context
 
-## Baseline inputs
+## Client baseline checks
 
-Consult the **SOC-007** section of the [baseline](../baselines/README.md). Confirm role-appropriate repositories, typical volume and destinations, approved projects, and high-risk data locations.
+Use the [client profile and operational baseline](../client-profile/README.md) to verify role-appropriate repositories, data classifications, typical volume, frequency, destinations, sharing scope, approved projects, and high-risk data locations.
 
 ## Investigation and correlation
 
@@ -39,9 +39,13 @@ Consult the **SOC-007** section of the [baseline](../baselines/README.md). Confi
 - Restrict affected sessions or access when required.
 - Coordinate legal, privacy, HR, and client notification through approved channels.
 
-## Tuning restrictions
+## Tuning
 
-Do not tune during investigation or containment. After classification, use the **SOC-007** section of the [tuning guidance](../tuning/mapped-tuning-guidelines.md) as the authoritative automation gate.
+Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
+
+**Automation candidate:** Role, approved project, data classification, source, destination, audience, volume, and device context all match the current client baseline.
+
+**Never auto-close:** Sensitive data, external or personal destinations, unusual volume, staging or compression, concealment, off-hours activity, or identity/device anomalies.
 
 ## Closure record
 

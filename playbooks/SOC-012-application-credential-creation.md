@@ -12,9 +12,9 @@ Secrets or certificates added to applications or service principals, including r
 - Credential type, lifetime, storage, and rotation workflow
 - Deployment, change, vendor, or project record
 
-## Baseline inputs
+## Client baseline checks
 
-Consult the **SOC-012** section of the [baseline](../baselines/README.md). Confirm authorized actors and owners, approved applications, deployment pipelines, credential standards, and expected permissions.
+Use the [client profile and operational baseline](../client-profile/README.md) to verify authorized actors and owners, approved applications and service principals, deployment pipelines, credential type and lifetime standards, storage and rotation workflows, permissions, roles, and consent.
 
 ## Investigation and correlation
 
@@ -39,9 +39,13 @@ Consult the **SOC-012** section of the [baseline](../baselines/README.md). Confi
 - Review and remove unexpected consent, permissions, roles, and owners.
 - Hunt subsequent token use, sign-ins, and resource access.
 
-## Tuning restrictions
+## Tuning
 
-Do not tune during investigation or containment. After classification, use the **SOC-012** section of the [tuning guidance](../tuning/mapped-tuning-guidelines.md) as the authoritative automation gate.
+Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
+
+**Automation candidate:** Authorized actor and application owner, approved deployment, change record, managed device, expected credential type and lifetime, and unchanged permission scope all match.
+
+**Never auto-close:** Long-lived secrets, dormant or high-privilege applications, missing owners, new consent, expanded permissions, risky actor activity, or unexplained token use.
 
 ## Closure record
 

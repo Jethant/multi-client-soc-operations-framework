@@ -1,6 +1,6 @@
 # Multi-Client SOC Triage Framework
 
-A structured triage methodology for analysts working across multiple Microsoft security environments. The framework connects alert taxonomy, client context, baselines, category playbooks, tuning, outreach, and closure documentation.
+A structured triage methodology for analysts working across multiple Microsoft security environments. The framework connects alert taxonomy, a client-wide operational baseline, category playbooks, tuning governance, outreach, and closure documentation.
 
 ## Status and intended use
 
@@ -14,21 +14,19 @@ Two safety rules apply throughout the framework:
 ## Quick start
 
 1. Identify the category in the [taxonomy](taxonomy/README.md).
-2. Load the approved [client context](customer-specific-context/README.md).
-3. Compare the activity with the relevant [baseline](baselines/README.md).
-4. Follow the category's [playbook](playbooks/README.md), which combines investigation, correlation, decision, containment, and closure guidance.
-5. Apply [tuning guidance](tuning/mapped-tuning-guidelines.md) only after the playbook is complete and its evidence gate is satisfied.
-6. Document the result with the [closure template](incident-closure-library/README.md) and use approved [outreach](outreach-templates/email-canned-replies.md) when needed.
+2. Load the client's current [profile and operational baseline](client-profile/README.md).
+3. Follow the category's [playbook](playbooks/README.md), including its baseline checks, investigation, decision, containment, and category-specific tuning criteria.
+4. Apply the central [tuning policy](tuning/README.md) only after the investigation is complete.
+5. Document the result with the [closure template](incident-closure-library/README.md) and use approved [outreach](outreach-templates/email-canned-replies.md) when needed.
 
 ## Framework structure
 
 | Layer | Purpose |
 | --- | --- |
 | [Taxonomy](taxonomy/README.md) | Stable IDs and definitions for supported alert categories |
-| [Client context](customer-specific-context/README.md) | Approved, time-bounded context used during triage |
-| [Baselines](baselines/README.md) | Expected behavior with owners and review dates |
-| [Category playbooks](playbooks/README.md) | Investigation, correlation, decision, containment, and closure steps by category |
-| [Tuning](tuning/mapped-tuning-guidelines.md) | Guardrailed suppression and auto-closure candidates |
+| [Client profile and baseline](client-profile/README.md) | One current source for client context, expected behavior, operational cycles, and exceptions |
+| [Category playbooks](playbooks/README.md) | Baseline checks, investigation, correlation, decision, containment, tuning criteria, and closure steps by category |
+| [Tuning policy](tuning/README.md) | Universal testing, ownership, expiration, rollback, and review requirements |
 | [Outreach templates](outreach-templates/email-canned-replies.md) | Conditional, user-safe communications |
 | [Incident closure library](incident-closure-library/README.md) | Evidence-based documentation and sanitized examples |
 | [Threat hunting](threat-hunting/Threat-Hunting-Topics.md) | Hypothesis-driven follow-up investigations |

@@ -12,9 +12,9 @@ Creation, deletion, disablement, and lifecycle activity for user, service, test,
 - First sign-ins, applications, device activity, and resource access
 - Retention, ownership-transfer, recovery, and offboarding records
 
-## Baseline inputs
+## Client baseline checks
 
-Consult the **SOC-008** section of the [baseline](../baselines/README.md). Confirm authorized lifecycle systems, administrators, account types, initial-access profiles, timing, and expiration practices.
+Use the [client profile and operational baseline](../client-profile/README.md) to verify authorized lifecycle systems and administrators, employee and contractor workflows, account types, initial groups, licenses and roles, timing, ownership, and expiration practices.
 
 ## Investigation and correlation
 
@@ -39,9 +39,13 @@ Consult the **SOC-008** section of the [baseline](../baselines/README.md). Confi
 - Preserve lifecycle, audit, and access evidence before deletion.
 - Transfer ownership and restore retention or recovery controls when required.
 
-## Tuning restrictions
+## Tuning
 
-Do not tune during investigation or containment. After classification, use the **SOC-008** section of the [tuning guidance](../tuning/mapped-tuning-guidelines.md) as the authoritative automation gate.
+Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
+
+**Automation candidate:** Approved lifecycle source, authorized actor, business owner, ticket, account type, initial access profile, and timing all match.
+
+**Never auto-close:** Privileged or unowned accounts, lifecycle bypass, unexpected first sign-in, abnormal credential creation, missing expiration, or deletion that affects audit and retention.
 
 ## Closure record
 

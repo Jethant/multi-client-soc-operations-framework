@@ -13,3 +13,5 @@
 - Required the latest incident status to be closed in closure reporting queries.
 - Removed confidence scoring fields while preserving evidence limitations and remaining uncertainty.
 - Consolidated heuristics, correlation workflows, and workflow guides into one playbook per taxonomy category.
+- Combined client context and incident-specific baseline sections into one client-wide profile and operational baseline.
+- Moved category-specific tuning criteria into playbooks and reduced the central tuning layer to universal governance.

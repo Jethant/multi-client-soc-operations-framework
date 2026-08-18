@@ -12,9 +12,9 @@ Malware, suspicious processes, persistence, credential theft, defense evasion, r
 - Device network, remote-session, and lateral-movement activity
 - Software ownership, approval, testing, and expiration context
 
-## Baseline inputs
+## Client baseline checks
 
-Consult the **SOC-011** section of the [baseline](../baselines/README.md). Confirm approved software, scripts, administration tools, signers, parent-child relationships, and network destinations.
+Use the [client profile and operational baseline](../client-profile/README.md) to verify approved software, scripts, administrative tools, signers, paths, parent-child process relationships, owners, network destinations, update behavior, and time-bounded testing exceptions.
 
 ## Investigation and correlation
 
@@ -39,9 +39,13 @@ Consult the **SOC-011** section of the [baseline](../baselines/README.md). Confi
 - Revoke exposed credentials and sessions when required.
 - Hunt files, hashes, processes, commands, destinations, and behavior across devices.
 
-## Tuning restrictions
+## Tuning
 
-Do not tune during investigation or containment. After classification, use the **SOC-011** section of the [tuning guidance](../tuning/mapped-tuning-guidelines.md) as the authoritative automation gate.
+Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
+
+**Automation candidate:** Approved software owner, signer, hash, path, parent process, command line, and network behavior all match, with no malicious capability or follow-on activity.
+
+**Never auto-close:** Credential theft, persistence, defense evasion, remote execution, lateral movement, abnormal use of an approved binary, or repeated low-severity detections across devices.
 
 ## Closure record
 

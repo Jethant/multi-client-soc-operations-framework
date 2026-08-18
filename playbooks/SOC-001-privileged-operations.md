@@ -12,9 +12,9 @@ Administrative actions, role changes, privileged access, and changes to protecte
 - Network source and access-path context
 - Change ticket, approval, and maintenance-window records
 
-## Baseline inputs
+## Client baseline checks
 
-Consult the **SOC-001** section of the [baseline](../baselines/README.md). Confirm that its owner and review date are current; a familiar administrator or device is context, not proof of legitimacy.
+Use the [client profile and operational baseline](../client-profile/README.md) to verify expected administrative roles, managed administrative devices, network paths, maintenance windows, common tasks, change records, and normal PIM, MFA, and break-glass workflows. Familiarity alone is not proof of legitimacy.
 
 ## Investigation and correlation
 
@@ -39,9 +39,13 @@ Consult the **SOC-001** section of the [baseline](../baselines/README.md). Confi
 - Preserve before-and-after configuration, audit records, and approval evidence.
 - Hunt for related administrative actions, identities, applications, and devices.
 
-## Tuning restrictions
+## Tuning
 
-Do not tune during investigation or containment. After classification, use the **SOC-001** section of the [tuning guidance](../tuning/mapped-tuning-guidelines.md) as the authoritative automation gate.
+Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
+
+**Automation candidate:** Actor, managed administrative device, approved workflow, PIM/MFA evidence, change record, and time window all match.
+
+**Never auto-close:** Privilege expansion, protected-control changes, break-glass use, unexpected role assignment, or correlated identity/device anomalies.
 
 ## Closure record
 
