@@ -6,11 +6,6 @@ A practical triage reference for analysts working across multiple Microsoft secu
 
 This repository is a reusable reference and sanitized portfolio example. Test queries, thresholds, and automation conditions in the target environment before using them in production.
 
-Core rules:
-
-1. Suppression and auto-closure require multiple independent signals; a familiar user, device, IP address, or low severity is insufficient by itself.
-2. Classify incidents with missing required telemetry as **Undetermined**.
-
 ## Quick start
 
 1. Identify the category in the [taxonomy](taxonomy/README.md).
