@@ -14,7 +14,7 @@ Additions to or removals from privileged local groups on endpoints and servers.
 
 ## Client baseline checks
 
-Use the [client profile and operational baseline](../client-profile/README.md) to verify approved endpoint-management actors and tools, device populations, provisioning and support workflows, privileged local groups, normal change volume, and deployment windows.
+Check approved management actors and tools, device populations, support workflows, privileged local groups, normal change volume, and deployment windows against the client profile.
 
 ## Investigation and correlation
 
@@ -40,10 +40,6 @@ Use the [client profile and operational baseline](../client-profile/README.md) t
 - Hunt the actor, member, tool, and command across endpoints.
 
 ## Tuning
-
-Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
-
-**Automation candidate:** Approved management tool, support or provisioning ticket, expected device population, intended member, target group, and maintenance window all match.
 
 **Never auto-close:** Interactive or remote manual additions, broad device scope, unexpected privileged membership, suspicious processes, or missing endpoint telemetry.
 

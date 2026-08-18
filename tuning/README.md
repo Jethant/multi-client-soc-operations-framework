@@ -1,6 +1,6 @@
 # Tuning policy
 
-Category-specific automation candidates and exclusions live in each [playbook](../playbooks/README.md). This file contains the universal requirements for any suppression or auto-closure change.
+Category-specific tuning limits live in each [playbook](../playbooks/README.md). This file covers requirements shared by every suppression or auto-closure change.
 
 ## Eligibility gate
 

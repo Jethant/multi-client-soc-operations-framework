@@ -1,6 +1,6 @@
 # Client profile and operational baseline
 
-Maintain one profile and operational baseline per client. It is the authoritative source for both client context and expected behavior; incident-specific baseline copies are not needed. Each playbook identifies which parts of this profile to check.
+Keep one profile and baseline per client. It records client context and normal behavior; do not create a separate baseline for each alert type. Each playbook lists the fields it needs.
 
 This public repository contains the template only. Completed profiles with live client identities, ranges, systems, contacts, or case details belong in the approved storage location for that client.
 
@@ -12,7 +12,7 @@ This public repository contains the template only. Completed profiles with live 
 - Last reviewed date
 - Next review date
 
-Time-sensitive facts should include their source and review date. Stale, missing, or unverified information is unknown and must not support automated closure or tuning.
+Give time-sensitive facts a source and review date. Do not use stale or unverified information to support automated closure or tuning.
 
 ## 1. Organization and responsibilities
 
@@ -87,7 +87,3 @@ For each exception, record the behavior, owner, evidence, scope, start date, exp
 - Known detection gaps
 - Previous tuning changes and their outcomes
 - Open follow-up actions, owners, and due dates
-
-## Profile maintenance
-
-Update the single client profile when the environment changes. Playbooks should point to relevant profile fields without copying client facts into category-specific baseline records.

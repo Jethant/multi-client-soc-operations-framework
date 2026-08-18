@@ -14,7 +14,7 @@ MFA registration, replacement, removal, recovery-detail changes, and helpdesk or
 
 ## Client baseline checks
 
-Use the [client profile and operational baseline](../client-profile/README.md) to verify approved self-service and helpdesk recovery workflows, supported MFA methods, expected device replacement, and onboarding patterns.
+Compare the approved recovery workflow, supported MFA methods, device replacement, and onboarding patterns with the client profile.
 
 ## Investigation and correlation
 
@@ -40,10 +40,6 @@ Use the [client profile and operational baseline](../client-profile/README.md) t
 - Review related device registrations and sensitive actions.
 
 ## Tuning
-
-Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
-
-**Automation candidate:** Approved self-service or helpdesk workflow, verified user, managed device, expected method, and clean sign-in timeline all agree.
 
 **Never auto-close:** New or removed methods during risky activity, ownership uncertainty, recovery-detail changes, unfamiliar sessions, or sensitive follow-on activity.
 

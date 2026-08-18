@@ -1,23 +1,23 @@
 # Category playbooks
 
-The playbooks are the analyst's primary investigation layer. Each one combines the former heuristic, correlation, and workflow guidance for a single taxonomy category.
+After choosing a taxonomy category, use its playbook as the investigation and response checklist.
 
 ## Universal triage sequence
 
 1. Confirm the correct client and UTC investigation window.
 2. Preserve the original alert, entities, detection rule, and evidence references.
 3. Select the category in the [taxonomy](../taxonomy/README.md).
-4. Open the matching playbook below.
-5. Load the client's current [profile and operational baseline](../client-profile/README.md), then apply the category-specific baseline checks in the playbook.
+4. Open the matching playbook from the taxonomy table.
+5. Load the client's current [profile and baseline](../client-profile/README.md) and complete the playbook's baseline checks.
 6. Record supporting, contradicting, and unavailable evidence.
 7. Contain or escalate before considering tuning.
-8. Apply the playbook's category-specific tuning criteria and the central [tuning policy](../tuning/README.md) only after the investigation is complete.
+8. Consider tuning only after the investigation is complete; apply both the playbook criteria and the central [tuning policy](../tuning/README.md).
 9. Document the result with the [incident closure template](../incident-closure-library/README.md).
 
 ## Classification
 
 Use the native Microsoft Sentinel values defined in the [incident closure template](../incident-closure-library/README.md). Missing required telemetry results in `Undetermined`, not `BenignPositive`.
 
-## Select a playbook
+## Tuning
 
-Use the [taxonomy table](../taxonomy/README.md) as the single category index. Its Playbook column opens the correct investigation file.
+The `BenignPositive` conditions in a playbook are the minimum evidence for a tuning candidate, not automatic approval. The playbook's `Never auto-close` rule and the central [tuning policy](../tuning/README.md) also apply.

@@ -14,7 +14,7 @@ Malware, suspicious processes, persistence, credential theft, defense evasion, r
 
 ## Client baseline checks
 
-Use the [client profile and operational baseline](../client-profile/README.md) to verify approved software, scripts, administrative tools, signers, paths, parent-child process relationships, owners, network destinations, update behavior, and time-bounded testing exceptions.
+Compare software, scripts, administrative tools, signers, paths, process relationships, owners, network destinations, update behavior, and testing exceptions with the client profile.
 
 ## Investigation and correlation
 
@@ -40,10 +40,6 @@ Use the [client profile and operational baseline](../client-profile/README.md) t
 - Hunt files, hashes, processes, commands, destinations, and behavior across devices.
 
 ## Tuning
-
-Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
-
-**Automation candidate:** Approved software owner, signer, hash, path, parent process, command line, and network behavior all match, with no malicious capability or follow-on activity.
 
 **Never auto-close:** Credential theft, persistence, defense evasion, remote execution, lateral movement, abnormal use of an approved binary, or repeated low-severity detections across devices.
 

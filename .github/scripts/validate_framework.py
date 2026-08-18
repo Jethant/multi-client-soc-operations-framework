@@ -10,7 +10,7 @@ from pathlib import Path
 from urllib.parse import unquote
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 REGISTRY = ROOT / "taxonomy" / "alert-types.json"
 TAXONOMY_INDEX = ROOT / "taxonomy" / "README.md"
 REQUIRED_SHARED_FILES = (
@@ -27,10 +27,6 @@ PLAYBOOK_SECTIONS = (
     "## Containment and follow-up",
     "## Tuning",
     "## Closure record",
-)
-PLAYBOOK_REFERENCES = (
-    "../client-profile/README.md",
-    "../tuning/README.md",
 )
 CATEGORY_ID = re.compile(r"^SOC-\d{3}$")
 MARKDOWN_LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
@@ -97,9 +93,6 @@ def validate_registry(errors: list[str]) -> None:
         for section in PLAYBOOK_SECTIONS:
             if section not in content:
                 fail(f"{playbook} is missing section: {section}", errors)
-        for reference in PLAYBOOK_REFERENCES:
-            if reference not in content:
-                fail(f"{playbook} is missing shared reference: {reference}", errors)
 
     if len(ids) != len(set(ids)) or len(names) != len(set(names)):
         fail("Taxonomy categories must have unique IDs and names", errors)

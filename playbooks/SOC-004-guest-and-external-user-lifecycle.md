@@ -14,7 +14,7 @@ Guest invitations, access changes, sponsorship, review, expiration, and offboard
 
 ## Client baseline checks
 
-Use the [client profile and operational baseline](../client-profile/README.md) to verify approved inviters, sponsors, partner domains, projects, access packages, group sets, access duration, and review and expiration cadence.
+Check approved inviters, sponsors, partner domains, projects, access packages, groups, access duration, and review cadence against the client profile.
 
 ## Investigation and correlation
 
@@ -40,10 +40,6 @@ Use the [client profile and operational baseline](../client-profile/README.md) t
 - Hunt for related external identities, invitations, and data access.
 
 ## Tuning
-
-Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
-
-**Automation candidate:** Inviter, sponsor, approved domain, project, access package, group set, and expiration all match current client information.
 
 **Never auto-close:** Privileged access, sensitive-group membership, missing sponsor, persistent access, unusual sign-ins, or unexpected data movement.
 

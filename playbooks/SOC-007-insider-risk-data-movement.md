@@ -14,7 +14,7 @@ Unusual access, download, upload, sharing, transfer, staging, compression, or de
 
 ## Client baseline checks
 
-Use the [client profile and operational baseline](../client-profile/README.md) to verify role-appropriate repositories, data classifications, typical volume, frequency, destinations, sharing scope, approved projects, and high-risk data locations.
+Compare repositories, data classifications, normal volume and frequency, destinations, sharing scope, approved projects, and high-risk data locations with the client profile.
 
 ## Investigation and correlation
 
@@ -40,10 +40,6 @@ Use the [client profile and operational baseline](../client-profile/README.md) t
 - Coordinate legal, privacy, HR, and client notification through approved channels.
 
 ## Tuning
-
-Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
-
-**Automation candidate:** Role, approved project, data classification, source, destination, audience, volume, and device context all match the current client baseline.
 
 **Never auto-close:** Sensitive data, external or personal destinations, unusual volume, staging or compression, concealment, off-hours activity, or identity/device anomalies.
 

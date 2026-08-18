@@ -36,9 +36,9 @@ This section contains an evidence-based closure template and sanitized case stud
 | Email or application | | | | |
 | Control or audit logs | | | | |
 
-### 4. Baseline and client context
+### 4. Client profile and baseline
 
-- Baseline reference, owner, and last review date
+- Profile reference and last review date
 - Matching expected behavior
 - Deviations and expired or missing context
 
@@ -59,7 +59,7 @@ This section contains an evidence-based closure template and sanitized case stud
 ### 7. Tuning decision
 
 - No tuning / monitor-only candidate / time-limited exception / production exception
-- Conditions, scope, owner, approval, expiration, and rollback trigger
+- Conditions, scope, owner, expiration, and rollback trigger
 - Historical validation result
 
 ### 8. Final determination

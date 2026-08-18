@@ -14,7 +14,7 @@ Failed sign-ins, failure-to-success sequences, password spraying, credential stu
 
 ## Client baseline checks
 
-Use the [client profile and operational baseline](../client-profile/README.md) to verify normal failure volume, failure-to-success timing, supported methods, service accounts, legacy clients, lockout behavior, managed-device patterns, and familiar locations. Validate the current device and session independently.
+Compare normal failure volume, failure-to-success timing, supported methods, service accounts, legacy clients, lockouts, managed devices, and familiar locations with the client profile. Validate the current device and session independently.
 
 ## Investigation and correlation
 
@@ -40,10 +40,6 @@ Use the [client profile and operational baseline](../client-profile/README.md) t
 - Hunt the source and attempted credentials across the client environment.
 
 ## Tuning
-
-Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
-
-**Automation candidate:** A low-volume failure sequence is followed promptly by success from the same managed device and consistent session context, with no cross-user source pattern or MFA anomaly.
 
 **Never auto-close:** Distributed failures, password spraying, success after suspicious failures, unfamiliar session properties, risky sign-ins, or repeated MFA prompts.
 
