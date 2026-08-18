@@ -34,9 +34,9 @@ Check approved simulations, email, browser and endpoint controls, reporting work
 
 ## Decision guidance
 
-**BenignPositive candidate:** Control telemetry confirms a block and independent endpoint plus identity evidence confirms no execution, submission, new session, token abuse, or MFA change.
+**BenignPositive candidate:** The event was an authorized simulation or other expected, non-malicious activity that triggered the detection as designed.
 
-**Escalate or classify TruePositive when:** Credentials or data were submitted, an attachment executed, a payload was written, suspicious sessions followed, or related users or devices interacted with the same infrastructure.
+**TruePositive:** The message, link, attachment, or destination was confirmed malicious, even when controls blocked it before compromise. Escalate urgently when credentials or data were submitted, an attachment executed, a payload was written, suspicious sessions followed, or related users or devices interacted with the same infrastructure.
 
 **Undetermined when:** Browser, endpoint, network, identity, or interaction telemetry is unavailable or contradictory.
 

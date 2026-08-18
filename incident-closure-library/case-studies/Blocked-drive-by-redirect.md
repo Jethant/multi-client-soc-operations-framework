@@ -14,7 +14,6 @@ Detonation of the referenced URL in Joe Sandbox resolved to an abnormal index pa
 - No payload execution, persistence, anomalous identity or MFA activity, lateral movement, or related file activity was identified in the scoped telemetry.
 - Additional DNS and HTTPS activity to `fonts.gstatic.com` and `encrypted-tbn0.gstatic.com` was consistent with normal Chrome background traffic and was separated from the malicious redirect chain.
 
-
 ## Response and remediation
 
 - Added the malicious redirect destinations as tenant indicators.
@@ -25,5 +24,7 @@ Detonation of the referenced URL in Joe Sandbox resolved to an abnormal index pa
 - Continued monitoring for related activity.
 
 ## Final assessment
+
+**Sentinel classification:** `TruePositive`
 
 This was a blocked drive-by compromise attempt involving malicious redirect infrastructure and a fraudulent sign-in page. Existing controls prevented the observed outbound communication, and the scoped investigation found no evidence of payload execution, persistence, lateral movement, or internal identity compromise.

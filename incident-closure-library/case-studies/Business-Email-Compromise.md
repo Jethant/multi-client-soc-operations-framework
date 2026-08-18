@@ -41,4 +41,6 @@ These mailbox-level findings came from the vendor's investigation rather than di
 
 ## Final assessment
 
+**Sentinel classification:** Not applicable. This matter was reported through client communications with management rather than created as a Microsoft Sentinel incident.
+
 This was a confirmed compromise of an external vendor mailbox that resulted in fraudulent payment instructions and financial loss. The scoped internal review found no evidence that internal identities, mailboxes, or systems were compromised. Vendor-mailbox containment remained dependent on actions and reporting from the vendor's security team.

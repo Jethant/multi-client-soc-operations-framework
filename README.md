@@ -11,7 +11,7 @@ This repository is a reusable reference and sanitized portfolio example. Test qu
 1. Identify the category in the [taxonomy](taxonomy/README.md).
 2. Load the client's current [profile and operational baseline](client-profile/README.md).
 3. Work through the category [playbook](playbooks/README.md).
-4. Complete the investigation, then apply the central [tuning policy](tuning/README.md).
+4. Complete the investigation. When a recurring benign or expected pattern warrants team review, route it through the central [tuning policy](tuning/README.md).
 5. Document the result with the [closure template](incident-closure-library/README.md) and use approved [outreach](outreach-templates/email-canned-replies.md) when needed.
 
 ## Framework structure
