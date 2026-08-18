@@ -1,98 +1,62 @@
 # Incident closure library
 
-This section contains an evidence-based closure template and sanitized case studies. Case studies distinguish observed facts, third-party statements, analyst inference, and unknowns.
+This section provides a concise closure format and sanitized case studies. A routine closure should let another analyst understand what triggered the incident, what the investigation established, what actions were taken, and why the final classification was selected.
 
-## Closure requirements
+## Routine closure template
 
-- Document the client scope and UTC investigation window.
-- Record every data source checked and any unavailable telemetry.
-- Cite evidence for material claims and record missing evidence as unknown.
-- State remaining uncertainty.
-- Assign an owner and due date to every follow-up action.
+### Incident overview
 
-## Incident documentation template
+- Alert name, category, and severity
+- Affected users, devices, applications, or other entities
+- Investigation window
+- Brief description of the activity that triggered the incident
 
-### 1. Incident summary
+### Investigation findings
 
-- Taxonomy ID and category
-- Detection source, rule ID, severity, and incident ID
-- Created time and investigation window in UTC
-- Affected users, devices, applications, or data using approved references
-- Concise description of the observed activity
+- Evidence that determined the outcome
+- Relevant client context or expected behavior
+- Important telemetry gaps or contradictory evidence, when they affect the conclusion
 
-### 2. Initial indicators
+### Actions taken
 
-- Alert details and suspicious properties
-- Immediate risks and containment decisions
-- Related alerts, incidents, or threat intelligence
+- Containment, remediation, outreach, or threat-hunting actions
+- Record `None` when no action was required
 
-### 3. Evidence and availability
+### Final assessment
 
-| Source | Time range | Result | Evidence reference | Available? |
-| --- | --- | --- | --- | --- |
-| Identity | | | | |
-| Device | | | | |
-| Network | | | | |
-| Email or application | | | | |
-| Control or audit logs | | | | |
+- Microsoft Sentinel classification
+- Concise reason for the classification
+- Remaining risk or follow-up, when applicable
 
-### 4. Client profile and baseline
+## Short closure statement
 
-- Profile reference and last review date
-- Matching expected behavior
-- Deviations and expired or missing context
+> Investigated **[alert]** affecting **[entities]** during **[time range]**. Findings: **[decisive evidence]**. Actions: **[actions or none]**. Closed as **[Microsoft Sentinel classification]** because **[reason]**. Follow-up: **[item or none]**.
 
-### 5. Correlation timeline
-
-- Ordered identity, device, network, application, MFA, policy, and file events
-- Supporting evidence
-- Contradictory evidence
-- Unknowns or telemetry gaps
-
-### 6. Actions taken
-
-- Containment and remediation
-- User, client, or stakeholder outreach
-- Evidence preservation
-- Threat hunt or scoping activity
-
-### 7. Tuning decision
-
-- No tuning / monitor-only candidate / time-limited exception / production exception
-- Conditions, scope, owner, expiration, and rollback trigger
-- Historical validation result
-
-### 8. Final determination
-
-Use the native Microsoft Sentinel incident classification values:
+## Microsoft Sentinel classifications
 
 - `TruePositive` — the detection accurately identified suspicious or malicious activity
 - `BenignPositive` — the detection accurately identified suspicious-looking but expected activity
 - `FalsePositive` — the incident resulted from incorrect alert logic or inaccurate data
-- `Undetermined` — the available evidence is insufficient or contradictory
-- Classification reason, when applicable
-- Remaining uncertainty
+- `Undetermined` — the available evidence was insufficient or contradictory
 
-### 9. Closure statement
+## Optional detail
 
-> Reviewed **[incident]** for **[client scope]** over **[UTC time range]**. Evidence from **[sources]** established **[observed facts]**. The activity **[matched/did not match]** baseline **[reference]**. Unavailable or contradictory evidence: **[details or none]**. Classification: **[Microsoft Sentinel classification]**. Follow-up: **[owner and due date or none]**.
+Add detail when it materially helps explain the investigation:
 
-### 10. Follow-up actions
+- Indicators or threat-intelligence context
+- Event timeline
+- Third-party findings and their source
+- Client baseline deviations
+- Unavailable telemetry
+- Evidence references to protected source locations
+- Legal, privacy, financial, or notification requirements
+- Lessons learned from a major or unusual incident
 
-- Action, owner, due date, and verification method
-- Baseline, detection, workflow, or outreach updates
-- Legal, privacy, financial, or client notification requirements
+Follow-up actions should include an owner and due date when they are assigned.
 
-### 11. Lessons learned
+## Recurring-alert follow-up
 
-- Detection or telemetry gaps
-- New correlation patterns
-- Training or process changes
-- Reusable sanitized knowledge
-
-### 12. Evidence references
-
-Reference protected source locations and keep sensitive evidence there.
+Routine closure does not require a tuning decision. When repeated incidents show the same benign or expected pattern, record representative incident examples and raise a tuning candidate for team review. Assessment, approval, testing, and implementation occur separately under the [tuning policy](../tuning/README.md).
 
 ## Sanitized case studies
 
