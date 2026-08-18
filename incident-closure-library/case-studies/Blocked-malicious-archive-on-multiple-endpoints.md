@@ -28,4 +28,4 @@ Several managed workstations downloaded the same shortcut-based archive containi
 
 Blocked malicious-file activity affecting multiple endpoints. The scoped evidence did not establish command and control or successful compromise.
 
-**Confidence:** Medium to high, dependent on complete endpoint telemetry for every affected device.
+**Remaining limitation:** The determination depends on complete endpoint telemetry for every affected device.

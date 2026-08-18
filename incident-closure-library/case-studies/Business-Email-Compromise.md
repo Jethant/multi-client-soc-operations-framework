@@ -32,4 +32,4 @@ These statements were third-party findings and should be referenced to the vendo
 
 Confirmed compromise of an external vendor mailbox with financial impact. The scoped internal review found no evidence of internal identity or system compromise, but that finding does not resolve the vendor's containment or financial-recovery status.
 
-**Confidence:** High for the fraudulent messages and financial impact; dependent on third-party reporting for vendor-mailbox details.
+**Evidence dependency:** Vendor-mailbox details depend on the third-party security report.

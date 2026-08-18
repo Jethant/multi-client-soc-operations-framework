@@ -12,7 +12,6 @@ This public repository must contain sanitized examples only. Completed profiles 
 - Data sources:
 - Last validated:
 - Next review:
-- Overall confidence: low / medium / high
 
 Stale, unowned, or unverified context must not support automated closure.
 

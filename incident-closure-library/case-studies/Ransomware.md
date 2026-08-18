@@ -39,4 +39,4 @@ Threat-intelligence context linked the infrastructure to ransomware distribution
 
 Blocked web activity involving ransomware-linked infrastructure. No successful compromise was identified within the available evidence and investigation window.
 
-**Confidence:** Medium to high, dependent on endpoint and network telemetry completeness.
+**Remaining limitation:** The determination depends on complete endpoint and network telemetry.
