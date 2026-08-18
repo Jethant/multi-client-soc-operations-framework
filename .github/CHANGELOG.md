@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Renamed the project to Multi-Client SOC Operations Framework to reflect its broader investigation, response, and improvement scope.
 - Clarified that the operational alert taxonomy routes investigations and complements MITRE ATT&CK®.
 - Added evidence-conditional ATT&CK mapping guidance to every category playbook.
 - Extended repository validation to require mapping guidance and catch ATT&CK link ID mismatches.

@@ -1,6 +1,6 @@
-# Multi-Client SOC Triage Framework
+# Multi-Client SOC Operations Framework
 
-A practical triage reference for analysts working across multiple Microsoft security environments. It combines a shared operational taxonomy, one baseline per client, category playbooks, tuning rules, outreach templates, and closure notes.
+A practical Microsoft Sentinel and Defender framework for analysts working across multiple client environments. It brings client context, alert routing, investigation and response playbooks, tuning, outreach, threat hunting, and incident closure into one operating model.
 
 ## Status and intended use
 
