@@ -42,6 +42,7 @@ SecurityIncident
 let Lookback = 7d;
 SecurityIncident
 | summarize arg_max(TimeGenerated, *) by IncidentName
+| where Status =~ "Closed"
 | where isnotnull(ClosedTime) and ClosedTime >= ago(Lookback)
 | extend ClosureMinutes = datetime_diff("minute", ClosedTime, CreatedTime)
 | where ClosureMinutes >= 0
@@ -73,6 +74,7 @@ LatestIncidents
 let Lookback = 30d;
 SecurityIncident
 | summarize arg_max(TimeGenerated, *) by IncidentName
+| where Status =~ "Closed"
 | where isnotnull(ClosedTime) and ClosedTime >= ago(Lookback)
 | where Severity =~ "High"
 | project ClosedTime, IncidentNumber, Title, Classification,

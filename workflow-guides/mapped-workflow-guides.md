@@ -8,7 +8,7 @@
 4. Load current client context and baseline; note ownership and review date.
 5. Build identity, device, network, application, and control timelines as applicable.
 6. Record supporting, contradicting, and unavailable evidence.
-7. Choose **Benign**, **Suspicious**, **Confirmed threat**, **Misconfiguration**, or **Needs more evidence**.
+7. Choose the Microsoft Sentinel incident classification: **TruePositive**, **BenignPositive**, **FalsePositive**, or **Undetermined**.
 8. Contain or escalate before tuning. Apply automation only through the documented tuning gate.
 9. Complete outreach, closure documentation, and follow-up ownership.
 

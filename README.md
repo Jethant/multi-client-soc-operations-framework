@@ -9,7 +9,7 @@ This repository is a reusable reference and sanitized portfolio example. Validat
 Two safety rules apply throughout the framework:
 
 1. Never suppress or auto-close an incident from one contextual signal such as a familiar user, device, IP address, or low severity.
-2. Missing required telemetry produces **Needs more evidence**, not a benign determination.
+2. Missing required telemetry produces an **Undetermined** classification, not a benign determination.
 
 ## Quick start
 
