@@ -2,6 +2,12 @@
 
 Category-specific tuning limits live in each [playbook](../playbooks/README.md). This file covers requirements shared by every suppression or auto-closure change.
 
+## Candidate workflow
+
+Routine incident closure does not require a tuning decision. When an analyst notices a frequently recurring alert with the same benign or expected pattern, the analyst records representative incident examples and raises the pattern with the team. The team decides whether it should enter tuning review.
+
+The requirements below apply after the team accepts a tuning candidate for evaluation.
+
 ## Eligibility gate
 
 Before implementing a tuning exception, require all of the following:
