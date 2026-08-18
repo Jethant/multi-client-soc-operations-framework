@@ -1,41 +1,27 @@
-# Email investigation outreach templates
+# Email investigation canned replies
 
-Replace every bracketed field. Describe only findings and actions supported by the investigation.
+These are short replies used after completing an email investigation. Adjust the blocking statement when the action taken differs from the template.
 
 ## Phishing simulation
 
-Thank you for reporting **[message subject or reference]**. This message was part of an authorized security-awareness simulation. No further action is required. Please continue reporting suspicious or unexpected messages.
+Thank you for reporting this email. No further action is required on your part. Please continue reporting any suspicious or unsolicited emails.
 
-## Legitimate message confirmation
+## Legitimate email confirmation
 
-Thank you for reporting **[message subject or reference]**. We reviewed the sender, message authentication, links or attachments, and available delivery context. We did not identify malicious indicators in the specific message reviewed.
+Thank you for bringing this email to our attention. After review, we did not identify malicious indicators in the reported message. You may interact with the message as needed.
 
-This determination applies only to that message. If the sender asks for credentials, payment changes, sensitive information, or unexpected action, verify the request through a separate trusted channel.
+Please don't hesitate to reach out if you encounter any further concerns.
 
-## Spam or unwanted message
+## Confirmed spam email
 
-Thank you for reporting **[message subject or reference]**. Our review classified this message as unwanted or spam, with no malicious payload identified in the evidence available to us. **[Filtering or blocking action, if actually performed.]**
+Thank you for reporting this email. After review, we determined that it is spam and not malicious. The message has been blocked, and filtering has been applied to related messages from this source.
 
-You may delete the message. Continue reporting similar or suspicious messages.
+No further action is required on your part. Please continue reporting any suspicious or unsolicited emails.
 
-## Confirmed phishing — no interaction identified
+## Confirmed phishing email
 
-We confirmed that **[message subject or reference]** is a phishing message. Our current evidence does not show that you opened an attachment, submitted information, or completed a malicious sign-in.
+Thank you for reporting this email. Our investigation confirmed that it is a phishing attempt. The message has been blocked, and filtering has been applied to related messages from this source.
 
-Please delete the message and tell the security team immediately if you interacted with it in a way not reflected above. **[Containment action actually performed.]**
+Please ensure that no links were clicked and no attachments were opened. If credentials or sensitive information may have been exposed, notify the security team immediately so the appropriate account-protection steps can be completed.
 
-## Link opened — no credential submission identified
-
-We confirmed that the link in **[message subject or reference]** was malicious or suspicious. Current evidence shows the link was opened, but we have not identified credential submission or payload execution.
-
-Please stop interacting with the page and contact **[approved security/helpdesk channel]** if you entered information, downloaded a file, or observed unusual behavior. **[Required device or identity follow-up.]**
-
-## Credential or sensitive-data submission suspected
-
-We are investigating possible credential or sensitive-data exposure related to **[message subject or reference]**. Use the official recovery channel instead of links in the original message.
-
-Contact **[approved security/helpdesk channel]** now and follow the organization's official recovery process. The security team will coordinate password reset, session revocation, MFA-method review, and any additional containment. Report what information was entered and the approximate time.
-
-## Attachment opened or execution suspected
-
-We are investigating a potentially malicious attachment associated with **[message subject or reference]**. Stop using the affected device and contact **[approved security channel]** immediately. Leave files and device state unchanged unless instructed so evidence is preserved.
+Please reach out if you have additional questions or concerns.
