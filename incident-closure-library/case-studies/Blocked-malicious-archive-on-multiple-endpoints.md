@@ -35,5 +35,5 @@ The incident was closed as `FalsePositive` based on the client's confirmation th
 ## Lessons learned
 
 - Record recommended actions separately from actions confirmed as completed.
-- Validate unfamiliar unsigned files with the client point of contact before treating the file verdict as a confirmed malicious finding.
+- Validate unfamiliar unsigned files with the client point of contact before treating the file verdict as a confirmed malicious finding (If the file looks potentially valid).
 - Treat correlated events as separate leads until the evidence establishes that they belong to the same attack chain.
