@@ -12,9 +12,9 @@ Failed sign-ins, failure-to-success sequences, password spraying, credential stu
 - Cross-user activity from the same source
 - Current user and population authentication baseline
 
-## Baseline inputs
+## Client baseline checks
 
-Consult the **SOC-002** section of the [baseline](../baselines/README.md). Use normal volumes and failure-to-success timing as context only after validating the current device and session.
+Use the [client profile and operational baseline](../client-profile/README.md) to verify normal failure volume, failure-to-success timing, supported methods, service accounts, legacy clients, lockout behavior, managed-device patterns, and familiar locations. Validate the current device and session independently.
 
 ## Investigation and correlation
 
@@ -39,9 +39,13 @@ Consult the **SOC-002** section of the [baseline](../baselines/README.md). Use n
 - Review and remove unauthorized MFA methods.
 - Hunt the source and attempted credentials across the client environment.
 
-## Tuning restrictions
+## Tuning
 
-Do not tune during investigation or containment. After classification, use the **SOC-002** section of the [tuning guidance](../tuning/mapped-tuning-guidelines.md) as the authoritative automation gate.
+Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
+
+**Automation candidate:** A low-volume failure sequence is followed promptly by success from the same managed device and consistent session context, with no cross-user source pattern or MFA anomaly.
+
+**Never auto-close:** Distributed failures, password spraying, success after suspicious failures, unfamiliar session properties, risky sign-ins, or repeated MFA prompts.
 
 ## Closure record
 

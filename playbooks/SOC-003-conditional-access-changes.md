@@ -12,9 +12,9 @@ Creation, modification, deletion, disablement, exclusion, or bypass of Condition
 - Policy evaluation and sign-in results
 - Change ticket, approval, design, and maintenance-window records
 
-## Baseline inputs
+## Client baseline checks
 
-Consult the **SOC-003** section of the [baseline](../baselines/README.md). Confirm authorized administrators, protected controls, deployment rings, and current change procedures.
+Use the [client profile and operational baseline](../client-profile/README.md) to verify authorized policy administrators, policy naming, protected controls, deployment rings, maintenance windows, and the current change workflow.
 
 ## Investigation and correlation
 
@@ -39,9 +39,13 @@ Consult the **SOC-003** section of the [baseline](../baselines/README.md). Confi
 - Review sign-ins that occurred while protection was weakened.
 - Preserve policy configuration and audit evidence.
 
-## Tuning restrictions
+## Tuning
 
-Do not tune during investigation or containment. After classification, use the **SOC-003** section of the [tuning guidance](../tuning/mapped-tuning-guidelines.md) as the authoritative automation gate.
+Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
+
+**Automation candidate:** Actor, managed device, approved ticket, maintenance window, before-and-after policy scope, and resulting controls all match.
+
+**Never auto-close:** Control removal, broad exclusions, policy disablement, access expansion, or an anomalous administrative session.
 
 ## Closure record
 

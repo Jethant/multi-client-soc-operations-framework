@@ -12,9 +12,9 @@ Identity activity that requires endpoint, inventory, enrollment, local-account, 
 - Network sessions and remote-access activity
 - Provisioning, support, and replacement records
 
-## Baseline inputs
+## Client baseline checks
 
-Consult the **SOC-009** section of the [baseline](../baselines/README.md). Confirm managed device identities, naming conventions, provisioning tools, local-account patterns, and maintenance windows.
+Use the [client profile and operational baseline](../client-profile/README.md) to verify managed device inventory, identities, naming conventions, enrollment and provisioning tools, ownership, local-account patterns, management processes, and maintenance windows.
 
 ## Investigation and correlation
 
@@ -39,9 +39,13 @@ Consult the **SOC-009** section of the [baseline](../baselines/README.md). Confi
 - Review local privilege, credentials, enrollment, and management state.
 - Hunt linked identities, devices, processes, and sessions.
 
-## Tuning restrictions
+## Tuning
 
-Do not tune during investigation or containment. After classification, use the **SOC-009** section of the [tuning guidance](../tuning/mapped-tuning-guidelines.md) as the authoritative automation gate.
+Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
+
+**Automation candidate:** Managed device, approved enrollment or provisioning workflow, expected management process, actor, and time window all match.
+
+**Never auto-close:** Unmanaged or duplicate devices, abnormal processes, remote access, local privilege changes, or correlated identity risk.
 
 ## Closure record
 

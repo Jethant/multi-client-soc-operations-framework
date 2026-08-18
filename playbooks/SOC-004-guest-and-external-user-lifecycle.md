@@ -12,9 +12,9 @@ Guest invitations, access changes, sponsorship, review, expiration, and offboard
 - Access-review and offboarding records
 - Inviter and administrator session context
 
-## Baseline inputs
+## Client baseline checks
 
-Consult the **SOC-004** section of the [baseline](../baselines/README.md). Confirm approved inviters, sponsors, partner domains, projects, access duration, and review cadence.
+Use the [client profile and operational baseline](../client-profile/README.md) to verify approved inviters, sponsors, partner domains, projects, access packages, group sets, access duration, and review and expiration cadence.
 
 ## Investigation and correlation
 
@@ -39,9 +39,13 @@ Consult the **SOC-004** section of the [baseline](../baselines/README.md). Confi
 - Notify the sponsor and resource owner through approved channels.
 - Hunt for related external identities, invitations, and data access.
 
-## Tuning restrictions
+## Tuning
 
-Do not tune during investigation or containment. After classification, use the **SOC-004** section of the [tuning guidance](../tuning/mapped-tuning-guidelines.md) as the authoritative automation gate.
+Apply the central [tuning policy](../tuning/README.md) after investigation and containment.
+
+**Automation candidate:** Inviter, sponsor, approved domain, project, access package, group set, and expiration all match current client information.
+
+**Never auto-close:** Privileged access, sensitive-group membership, missing sponsor, persistent access, unusual sign-ins, or unexpected data movement.
 
 ## Closure record
 
