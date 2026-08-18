@@ -38,4 +38,6 @@ These were the defanged domains and external IP addresses recorded during the in
 
 ## Final assessment
 
+**Sentinel classification:** `TruePositive`
+
 This was a blocked drive-by compromise attempt involving ransomware-linked infrastructure. Sentinel correlated the events because of the destination context, but the scoped evidence did not show ransomware execution or a successful endpoint compromise. Existing controls blocked the observed activity before follow-on behavior was identified.

@@ -30,10 +30,12 @@ The platform correlation brought together events that required investigation but
 
 ## Final assessment
 
-The incident was closed as `FalsePositive` based on the client's confirmation that the archive and executable belonged to a legitimate work-related project. The scoped investigation found no evidence of successful compromise, persistence, lateral movement, command and control, or build-process compromise. The removal recommendation was not recorded as a completed action.
+**Sentinel classification:** `FalsePositive`
+
+The client confirmed that the archive and executable belonged to a legitimate work-related project. The scoped investigation found no evidence of successful compromise, persistence, lateral movement, command and control, or build-process compromise. The removal recommendation was not recorded as a completed action.
 
 ## Lessons learned
 
 - Record recommended actions separately from actions confirmed as completed.
-- Validate unfamiliar unsigned files with the client point of contact before treating the file verdict as a confirmed malicious finding (If the file looks potentially valid).
+- Validate unfamiliar unsigned files with the client point of contact when the file could plausibly support legitimate business activity.
 - Treat correlated events as separate leads until the evidence establishes that they belong to the same attack chain.

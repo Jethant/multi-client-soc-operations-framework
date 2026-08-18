@@ -46,9 +46,9 @@ Keep the required playbook sections: scope, telemetry, baseline checks, investig
 
 ## Case studies and client data
 
-- Use sanitized values only.
 - Separate observed facts, third-party reports, inference, and unknowns.
-- Use reserved documentation domains and IP addresses.
+- Use reserved documentation values for client-specific, internal, or uncertain indicators.
+- Historical external threat indicators may be retained when they are relevant, defanged, non-client-identifying, and described as observations from the investigation period.
 - Keep live client identities, internal ranges, messages, credentials, tokens, and case evidence in the client's protected system.
 
 ## Pull requests

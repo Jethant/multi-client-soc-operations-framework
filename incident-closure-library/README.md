@@ -24,13 +24,13 @@ This section provides a concise closure format and sanitized case studies. A rou
 
 ### Final assessment
 
-- Microsoft Sentinel classification
+- Microsoft Sentinel classification, when applicable
 - Concise reason for the classification
 - Remaining risk or follow-up, when applicable
 
 ## Short closure statement
 
-> Investigated **[alert]** affecting **[entities]** during **[time range]**. Findings: **[decisive evidence]**. Actions: **[actions or none]**. Closed as **[Microsoft Sentinel classification]** because **[reason]**. Follow-up: **[item or none]**.
+> Investigated **[alert or reported matter]** affecting **[entities]** during **[time range]**. Findings: **[decisive evidence]**. Actions: **[actions or none]**. Classification: **[Microsoft Sentinel classification or not applicable]**. Assessment: **[reason]**. Follow-up: **[item or none]**.
 
 ## Microsoft Sentinel classifications
 
@@ -38,6 +38,8 @@ This section provides a concise closure format and sanitized case studies. A rou
 - `BenignPositive` — the detection accurately identified suspicious-looking but expected activity
 - `FalsePositive` — the incident resulted from incorrect alert logic or inaccurate data
 - `Undetermined` — the available evidence was insufficient or contradictory
+
+Use these values only for incidents classified in Microsoft Sentinel. For a matter reported through another channel, record the source and state that Sentinel classification is not applicable.
 
 ## Optional detail
 
