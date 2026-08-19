@@ -25,3 +25,9 @@ Thank you for reporting this email. Our investigation confirmed that it is a phi
 Please ensure that no links were clicked and no attachments were opened. If credentials or sensitive information may have been exposed, notify the security team immediately so the appropriate account-protection steps can be completed.
 
 Please reach out if you have additional questions or concerns.
+
+## User interaction confirmation
+
+We are investigating a security alert involving a message, link, attachment, or download associated with your account. Please confirm whether you clicked the link, opened or downloaded an attachment, entered credentials or other information, or approved an unexpected MFA prompt. If any interaction occurred, include the approximate time and what you observed.
+
+Please do not interact with the message or content again. The identified message and related indicators have been blocked. We may contact you with additional account or device protection steps based on your response.
