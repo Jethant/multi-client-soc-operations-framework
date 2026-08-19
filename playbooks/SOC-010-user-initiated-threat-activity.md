@@ -45,7 +45,7 @@ Check approved simulations, email, browser and endpoint controls, reporting work
 - Purge confirmed malicious messages and block approved indicators.
 - Revoke sessions, reset credentials, and review MFA methods when exposure is possible.
 - Isolate affected devices and quarantine artifacts when execution is possible.
-- Notify affected users using the approved [outreach template](../outreach-templates/email-canned-replies.md).
+- When interaction is unclear or exposure is possible, contact the affected user using the approved [user-interaction confirmation template](../outreach-templates/email-canned-replies.md#user-interaction-confirmation).
 
 ## Tuning
 
